@@ -1,89 +1,54 @@
-# Kaki
+[KAKI.md, # Kaki
 
-Kaki now runs on the complete OpenClaw runtime. The fork includes its Gateway,
-model providers, Baileys WhatsApp channel, Telegram and other channels, Gmail
-Pub/Sub webhooks, managed browser, schedules and heartbeats, skills, plugin SDK,
-MCP surfaces, Control UI, and companion apps. Kaki's existing Southeast Asian
-product work is preserved in `kaki/` for integration through those runtime seams.
+Kaki is a self-hosted household agent for Southeast Asia, built on the complete OpenClaw runtime. It adds a private household profile, regional skill catalogue, operator controls, approval records, and locale packs while OpenClaw provides the Gateway, authentication, models, channels, sessions, and Control UI.
 
-## Local source test
+## Start here
 
-Prerequisites: Node.js 24.15+ (or another supported OpenClaw version) and pnpm.
+- [Kaki overview](docs/kaki/index.md) — mental model and tested-capability matrix
+- [Quickstart](docs/kaki/quickstart.md) — source install to verified Gateway
+- [Onboard a household](docs/kaki/onboarding.md) — private profile and SecretRefs
+- [Use Kaki](docs/kaki/using-kaki.md) — dashboard, Telegram commands, skills, and approvals
+- [Operations](docs/kaki/operations.md) — health, backups, updates, and rollback
+- [Troubleshooting](docs/kaki/troubleshooting.md) — symptom-first recovery
+- [Reference](docs/kaki/reference.md) — CLI, config, and HTTP limits
+- [Known limitations](docs/kaki/limitations.md) — exact live-evidence boundaries
 
-```powershell
-pnpm install
-pnpm build
-node .\kaki.mjs --version
-node .\kaki.mjs onboard
-node .\kaki.mjs gateway
+## Ten-minute local proof
+
+On Ubuntu/Linux or macOS with a supported Node.js version:
+
+```bash
+git clone https://github.com/premhiru/openclaw-kaki.git
+cd openclaw-kaki
+./kaki/scripts/install.sh --dry-run
+./kaki/scripts/install.sh
 ```
 
-The `kaki` launcher maps OpenClaw's state and config contracts to:
+Create a private profile from `kaki/examples/onboarding-profile.example.json`, export the five referenced secrets, then run:
 
-- state: `%USERPROFILE%\.kaki`
-- config: `%USERPROFILE%\.kaki\kaki.json`
-- override: `KAKI_HOME`
-
-The upstream-compatible `openclaw` launcher remains available for diagnostics
-and future upstream merges.
-
-## Connect WhatsApp
-
-After building and onboarding:
-
-```powershell
-node .\kaki.mjs plugins install clawhub:@openclaw/whatsapp
-node .\kaki.mjs channels login --channel whatsapp
-node .\kaki.mjs gateway
+```bash
+kaki onboard --classic --install-daemon \
+  --skip-channels \
+  --kaki-profile /protected/path/profile.json
+kaki gateway status
+kaki status --deep
+kaki dashboard
 ```
 
-Scan the displayed QR in WhatsApp's **Linked devices** screen. A dedicated
-WhatsApp number is recommended. Unknown senders use pairing by default; approve
-requests in the Control UI or with `kaki pairing approve whatsapp <CODE>`.
+This proves the source installation, profile transaction, local Gateway, and authenticated UI path. It does not prove a live channel, third-party provider, or physical Android device. Follow the [Quickstart](docs/kaki/quickstart.md) for exact requirements, expected results, and recovery.
 
-## Connect Gmail
+## State boundary
 
-Gmail is event-driven through OpenClaw's authenticated Google integration and
-Pub/Sub webhook surface. Complete `kaki onboard`, configure the Google account,
-then follow the runtime's Gmail Pub/Sub setup under the scheduled-tasks/webhooks
-documentation. Gmail account authorization and Google Cloud Pub/Sub resources
-must be created by the operator; they are not embedded in this repository.
+The `kaki` launcher keeps state separate from the default OpenClaw installation:
 
-## What is live today
+- state: `${KAKI_HOME:-$HOME/.kaki}`
+- config: `${KAKI_HOME:-$HOME/.kaki}/kaki.json`
+- workspace: `${KAKI_HOME:-$HOME/.kaki}/workspace`
 
-The existing Kaki Sites dashboard remains a private UI preview. It is not the
-Gateway. To test real WhatsApp, Gmail, browser, schedules, tools, or approvals,
-run the Gateway locally (or on a private always-on host) and open the upstream
-Control UI it serves. Do not expose the Gateway directly to the public internet;
-use its documented authentication and private-network deployment options.
+The upstream-compatible `openclaw` launcher remains available for diagnostics and upstream maintenance.
 
-## Integration boundary
+## Safety boundary
 
-The `kaki/` directory contains the earlier household UI and regional packages.
-They are preserved without pretending they are already wired into every OpenClaw
-runtime path. The integration sequence is: use the real OpenClaw runtime first,
-then port Kaki modules into plugins and skills with boundary tests. See
-`UPSTREAM.md` for the immutable upstream pin.
+Do not give Kaki bank credentials, Singpass credentials, reusable OTPs, production medical access, or meaningful payment authority. Use dedicated accounts, minimal permissions, provider-side caps, and bounded live probes.
 
-## Import validation
-
-Validated on Windows with Node.js 24.15.0:
-
-- `pnpm install`: passed for all 171 workspace projects; all 1,531 lockfile
-  entries passed upstream supply-chain checks.
-- Production compilation: the AI packages, shared packages, unified runtime,
-  61 external plugins, 147 public plugin SDK exports, 48 plugin control-plane
-  modules, and Control UI all built successfully.
-- Kaki launcher: version, root help, `KAKI_HOME` config mapping, plugin discovery,
-  and Gmail webhook help passed.
-- WhatsApp discovery: the real `extensions/whatsapp` plugin loads without a
-  plugin error and exposes the Baileys onboarding/login surface.
-- WhatsApp tests: 1,300 passed, 11 skipped, and 35 failed on this Windows host.
-  Failures include unavailable symlink privileges, `/tmp` assumptions, SQLite
-  cleanup locks, one Windows shell-quoting assertion, and two upstream redaction
-  assertions. These were not hidden or patched around.
-
-The aggregate `pnpm build` command reaches its final metadata phase, then the
-source-mode browser-help renderer exceeds its fixed 120-second timeout in this
-OneDrive checkout. Direct dist-backed CLI help succeeds. This is recorded as a
-validation gap until reproduced on a faster non-synced path or resolved upstream.
+Repository tests cover deterministic contracts. Live release evidence is tracked separately; read [Known limitations](docs/kaki/limitations.md) before relying on WhatsApp, Gmail, Grab, government portals, provider data, cost budgets, pause behavior, or phone automation.].Value

@@ -1,54 +1,37 @@
-# Kaki
+[kaki/README.md, # Kaki workspace
 
-Kaki is a self-hosted household agent for Southeast Asia, starting with Singapore. It is designed to receive work from WhatsApp, Telegram, or WebChat and advance browser, Android-phone, API, and human-approval workflows to the last safe step.
+This directory contains Kaki's household product packages, regional skills, fixtures, evaluation harness, operator documentation, and acceptance tooling. The runtime plugin lives at `extensions/kaki`; the repository-root `kaki.mjs` launcher runs it on OpenClaw.
 
-Kaki is integrated into the canonical OpenClaw workspace as the `@openclaw/kaki`
-plugin and is launched through the root `kaki` entry point. Deterministic fixture
-coverage is broad, but it is **not a claim of live WhatsApp, Grab, Singpass, bank,
-or government-portal readiness**. Live release evidence is tracked separately in
-[Verification](docs/VERIFY.md).
+For user setup, start with the [Kaki quickstart](../docs/kaki/quickstart.md). This page is for contributors and release operators.
 
 ## Requirements
 
-- Node.js 22 or newer
-- Corepack and pnpm 11.7
+- Ubuntu/Linux or macOS for the checked-in source installer
+- Node.js `22.22.3–22.x`, `24.15.0–24.x`, or `25.9.0–25.x`
+- Corepack; the repository pins pnpm `12.1.0`
 - Git
-- Docker with Compose for the development service scaffold
-- For live phone workflows: a dedicated Android device, ADB, and assistant-owned accounts with a capped wallet
+- Docker with Compose only for the optional development service scaffold
 
-Ubuntu 24.04 and macOS are the intended installation targets. Windows is supported for development but is not part of the §20 installer acceptance claim.
+Native Windows is not part of the installer acceptance path.
 
-## Quickstart
+## Install and onboard
 
-```sh
-git clone <your-kaki-repository> kaki
-cd kaki
-cp kaki/.env.example .env
+```bash
+./kaki/scripts/install.sh --dry-run
 ./kaki/scripts/install.sh
-pnpm kaki onboard
-pnpm --dir kaki test:qa
-pnpm --dir kaki test:e2e
-pnpm --dir kaki evals
-pnpm --dir kaki acceptance
+kaki onboard --classic --install-daemon \
+  --kaki-profile /protected/path/profile.json
+kaki gateway status
+kaki status --deep
 ```
 
-The installer always resolves and builds the repository root, even when invoked
-from another directory. `pnpm --dir kaki acceptance` reports deterministic CI
-evidence and pending live checks. It is expected to list live work until real
-evidence exists. `pnpm --dir kaki acceptance:release` is stricter and must not
-pass without non-fixture evidence for the exact build.
-
-For an interactive household name and locale prompt, run:
-
-```sh
-pnpm kaki onboard
-```
-
-Before OpenClaw onboarding starts, the `kaki` launcher prepares the same workspace OpenClaw resolves from `OPENCLAW_WORKSPACE_DIR` (default `~/.kaki/workspace`). It installs the Singapore `SOUL.md` and all maintained and phone skill playbooks under `workspace/skills/`. Existing destination files are preserved byte-for-byte on later runs. Pass `--workspace <dir>` to seed and configure another workspace explicitly.
+Use [the safe profile template](examples/onboarding-profile.example.json) and [onboarding guide](docs/ONBOARDING.md). The installer always resolves and builds the repository root, even when invoked from another directory.
 
 ## Development checks
 
-```sh
+From the repository root:
+
+```bash
 pnpm --dir kaki format:check
 pnpm --dir kaki lint
 pnpm --dir kaki typecheck
@@ -64,7 +47,9 @@ pnpm --dir kaki docs:check
 pnpm audit --audit-level high
 ```
 
-Fixture replay checks recorded contracts unless a runtime adapter is explicitly supplied. See [Evaluation architecture](evals/README.md) before interpreting a green result.
+Fixture replay checks recorded contracts unless a runtime adapter is explicitly supplied. Read [Evaluation architecture](evals/README.md) before interpreting a green result.
+
+`pnpm --dir kaki acceptance` reports deterministic evidence and names pending live checks. `pnpm --dir kaki acceptance:release` is stricter and must not pass without non-fixture evidence for the exact build.
 
 ## Repository guide
 
@@ -78,15 +63,17 @@ Fixture replay checks recorded contracts unless a runtime adapter is explicitly 
 - [Verification](docs/VERIFY.md)
 - [Skill catalogue](docs/SKILLS.md)
 - [Locale guide](docs/LOCALE.md)
-- [Progress](docs/PROGRESS.md)
-- [Master-prompt requirements ledger](docs/REQUIREMENTS.md)
-- [Deployment implementation handoff](docs/agents/DEPLOYMENT.md)
+- [Requirements ledger](docs/REQUIREMENTS.md)
 - [Contributing](CONTRIBUTING.md)
 
-## Safety defaults
+Public operator documentation is under [`docs/kaki`](../docs/kaki/index.md).
 
-Kaki keeps secrets behind opaque handles, masks government and payment identifiers, rejects untrusted document/image/vendor instructions as authority, pauses on channel bans and rate limits, and requires policy/approval at irreversible boundaries. Do not use personal primary accounts or meaningful payment amounts during development.
+## Safety and evidence
+
+Kaki's policy engine, facts-bound approval ledger, SecretRef validation, and private-profile encryption are implemented and tested. That does not make every external integration or UI workflow complete. In particular, physical Android control, universal pause enforcement, hard model budgets, quiet hours, and several Control UI mutations remain limited.
+
+Never put plaintext secrets in plugin config, profiles, fixtures, screenshots, or issues. Do not use personal primary accounts or meaningful payment amounts during development. See [Known limitations](../docs/kaki/limitations.md) before a live probe.
 
 ## License and upstream
 
-Kaki is MIT licensed. Fork provenance and pinned upstream information are in [UPSTREAM.md](UPSTREAM.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Kaki is MIT licensed. Fork provenance and the pinned upstream are recorded in [UPSTREAM.md](UPSTREAM.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).].Value
