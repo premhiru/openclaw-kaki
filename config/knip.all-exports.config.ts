@@ -125,11 +125,11 @@ const config = {
   ],
   // Keep only build artifacts out of the full-tree export audit. In
   // particular, do not inherit production's test-support exclusions.
-  ignore: ["dist/**", "packages/*/dist/**", "**/.boundary-stubs/**"],
-  // This fixture deliberately mixes used, aliased, and unused exports so the
+  ignore: ["dist/**", "packages/*/dist/**", "**/.boundary-stubs/**", "kaki/**"], // This fixture deliberately mixes used, aliased, and unused exports so the
   // topology analyzer can prove each classification.
   ignoreIssues: {
-    // The memory-state compatibility facade must retain its pre-registry-bundle type export.
+    "extensions/kaki/src/contracts.ts": ["types"],
+    "extensions/kaki/src/onboarding-state.ts": ["types"], // The memory-state compatibility facade must retain its pre-registry-bundle type export.
     "src/plugins/memory-state.ts": ["types"],
     "test/fixtures/ts-topology/basic/**": [
       "exports",

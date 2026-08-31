@@ -557,8 +557,9 @@ describe("registerPluginCliCommands", () => {
     const program = createProgram();
     program.exitOverride();
     mocks.resolveManifestActivationPluginIds.mockReturnValue(["memory-core"]);
+    const config = {} as OpenClawConfig;
 
-    await registerPluginCliCommands(program, {} as OpenClawConfig, undefined, undefined, {
+    await registerPluginCliCommands(program, config, undefined, undefined, {
       mode: "lazy",
       primary: "memory",
     });
@@ -568,6 +569,13 @@ describe("registerPluginCliCommands", () => {
     ).toBe(1);
     const loadOptions = getMockCallObject(mocks.loadOpenClawPlugins);
     expect(loadOptions.onlyPluginIds).toEqual(["memory-core"]);
+    expect(loadOptions.config).toEqual({
+      plugins: {
+        allow: ["memory-core"],
+        entries: { "memory-core": { enabled: true } },
+      },
+    });
+    expect(loadOptions.activationSourceConfig).toBe(config);
 
     await program.parseAsync(["memory", "list"], { from: "user" });
 

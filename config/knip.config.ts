@@ -409,7 +409,13 @@ const config = {
   ],
   // Knip's `ignoreFiles` only suppresses unused-file findings. Test helpers
   // belong in `ignore` so they do not inflate unused-export/type findings.
-  ignore: ["dist/**", "packages/*/dist/**", "**/.boundary-stubs/**", ...ignoredTestSupportFiles],
+  ignore: [
+    "dist/**",
+    "packages/*/dist/**",
+    "**/.boundary-stubs/**",
+    "kaki/**",
+    ...ignoredTestSupportFiles,
+  ],
   // Script exports are checked with every script as an entry and entry-export
   // reporting enabled. Suppress them only in this application-production scan.
   ignoreIssues: {
@@ -419,6 +425,12 @@ const config = {
     "src/boards/board-notices.ts": ["exports"],
     "src/boards/board-store.ts": ["exports"],
     "src/gateway/board-view-ticket.ts": ["exports"],
+    // Kaki exposes these stable extension seams for downstream household integrations.
+    "extensions/kaki/src/commands.ts": ["exports"],
+    "extensions/kaki/src/onboarding-cli.ts": ["exports"],
+    "extensions/kaki/src/projection.ts": ["exports"],
+    "extensions/kaki/src/contracts.ts": ["types"],
+    "extensions/kaki/src/onboarding-state.ts": ["types"],
     // Focused startup tests consume this explicit seam; production imports only the bootstrap.
     "src/gateway/server-startup-bootstrap.ts": ["exports"],
     // Registry facades retain direct registration/reset compatibility seams used by focused

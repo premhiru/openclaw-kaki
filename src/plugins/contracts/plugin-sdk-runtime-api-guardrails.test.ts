@@ -23,6 +23,7 @@ const UNGUARDED_RUNTIME_API_PLUGIN_IDS = [
   "diffs",
   "feishu",
   "google",
+  "kaki",
   "line",
   "lmstudio",
   "lobster",

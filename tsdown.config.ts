@@ -324,11 +324,19 @@ function shouldNeverBundleDependency(id: string): boolean {
 }
 
 function shouldNeverBundleDeclarationDependency(id: string): boolean {
-  return shouldNeverBundleDependency(id) || id === "zod" || id.startsWith("zod/");
+  // Kaki runtime code is bundled below, but its declaration graph must retain type-only imports.
+  // Bundling those declarations asks Rolldown for runtime exports that intentionally do not exist.
+  return (
+    shouldNeverBundleDependency(id) ||
+    id.startsWith("@kaki/") ||
+    id === "zod" ||
+    id.startsWith("zod/")
+  );
 }
 
 function shouldAlwaysBundleDependency(id: string): boolean {
   return (
+    id.startsWith("@kaki/") ||
     id === "openclaw/plugin-sdk/ssrf-runtime-internal" ||
     id === "@openclaw/fs-safe" ||
     id.startsWith("@openclaw/fs-safe/") ||

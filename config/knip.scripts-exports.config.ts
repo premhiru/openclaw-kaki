@@ -32,7 +32,11 @@ const repositoryToolEntries = [
 
 const config = {
   ignoreWorkspaces: ["apps/**", "extensions/**", "packages/**", "ui"],
-  ignore: ["scripts/**/*.d.{mts,cts,ts}", "scripts/**/*.test-support.{js,mjs,cjs,ts,mts,cts}"],
+  ignore: [
+    "scripts/**/*.d.{mts,cts,ts}",
+    "scripts/**/*.test-support.{js,mjs,cjs,ts,mts,cts}",
+    "kaki/**",
+  ],
   // Script entrypoints import core and Plugin SDK APIs. Those owners are
   // checked by the application scans; this pass owns only scripts/** exports.
   ignoreIssues: {
