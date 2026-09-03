@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   format:
-    if: "github.event.head_commit.message == 'ci: repair one-time docs formatter'"
+    if: "github.event.head_commit.message == 'ci: finalize one-time docs formatter'"
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -26,7 +26,6 @@ jobs:
           corepack enable
           corepack pnpm install --frozen-lockfile
           corepack pnpm exec oxfmt \
-            .ci-harness/KAKI.md \
             KAKI.md \
             docs/kaki/index.md \
             docs/kaki/limitations.md \
@@ -44,6 +43,6 @@ jobs:
           rm .github/workflows/kaki-docs-format.yml
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .ci-harness/KAKI.md KAKI.md docs/kaki kaki/README.md kaki/docs/ONBOARDING.md .github/workflows/kaki-docs-format.yml
+          git add KAKI.md docs/kaki kaki/README.md kaki/docs/ONBOARDING.md .github/workflows/kaki-docs-format.yml
           git commit -m 'docs(kaki): apply canonical formatting'
           git push origin HEAD:codex/kaki-rebuild
