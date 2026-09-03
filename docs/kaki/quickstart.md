@@ -1,9 +1,11 @@
 [docs/kaki/quickstart.md, ---
 summary: "Install Kaki from source and verify a local Gateway."
 read_when:
-  - You are installing Kaki for the first time
-  - You want the shortest supported setup path
-title: "Kaki quickstart"
+
+- You are installing Kaki for the first time
+- You want the shortest supported setup path
+  title: "Kaki quickstart"
+
 ---
 
 This guide installs Kaki from a source checkout, creates a household profile, starts the Gateway, and verifies that the local dashboard is reachable.

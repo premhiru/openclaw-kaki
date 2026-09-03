@@ -1,9 +1,11 @@
 [docs/kaki/onboarding.md, ---
 summary: "Prepare and validate Kaki's private household profile."
 read_when:
-  - You are preparing a Kaki onboarding profile
-  - Onboarding rejects a field or SecretRef
-title: "Onboard a household"
+
+- You are preparing a Kaki onboarding profile
+- Onboarding rejects a field or SecretRef
+  title: "Onboard a household"
+
 ---
 
 Kaki onboarding collects household structure and references to secrets in one validated transaction. It writes only non-secret IDs into plugin configuration and encrypts the private profile with AES-256-GCM.
@@ -20,17 +22,17 @@ The example is deliberately non-secret. Replace every `replace-*` identifier and
 
 ## Profile contract
 
-| Field | Rule |
-| --- | --- |
-| `config` | Eleven non-empty reference IDs plus one supported locale. IDs are at most 128 characters. |
-| `householdName`, `operatorName` | Required household and operator display names. |
-| `members` | 1–100 entries. The `operatorPersonId` must match a member `id`. |
-| `addresses` | 1–32 entries. Labels are `home`, `office`, or `school`; confirm coordinates and postal data yourself. |
-| `approvalAutoCap` | Non-negative amount used by the implemented payment policy. Start low. |
-| `approvalCurrency` | Use `SGD` for the currently wired below-cap known-payee policy. |
-| `monthlyModelBudgetUsd` | Recorded budget value; it is not yet enforced across model execution. |
-| `monitorSessionKey` | Session that receives the scheduled monitor announcement turns. |
-| `secretRefs` | Exactly five resolvable references: `householdMemoryKey`, `model`, `ltaDataMall`, `oneMap`, and `phonePairing`. |
+| Field                           | Rule                                                                                                            |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `config`                        | Eleven non-empty reference IDs plus one supported locale. IDs are at most 128 characters.                       |
+| `householdName`, `operatorName` | Required household and operator display names.                                                                  |
+| `members`                       | 1–100 entries. The `operatorPersonId` must match a member `id`.                                                 |
+| `addresses`                     | 1–32 entries. Labels are `home`, `office`, or `school`; confirm coordinates and postal data yourself.           |
+| `approvalAutoCap`               | Non-negative amount used by the implemented payment policy. Start low.                                          |
+| `approvalCurrency`              | Use `SGD` for the currently wired below-cap known-payee policy.                                                 |
+| `monthlyModelBudgetUsd`         | Recorded budget value; it is not yet enforced across model execution.                                           |
+| `monitorSessionKey`             | Session that receives the scheduled monitor announcement turns.                                                 |
+| `secretRefs`                    | Exactly five resolvable references: `householdMemoryKey`, `model`, `ltaDataMall`, `oneMap`, and `phonePairing`. |
 
 Supported locale codes are `sg`, `my`, `id`, `th`, `vn`, `ph`, `mm`, and `kh`. All monitor schedules currently use `Asia/Singapore`; Myanmar and Cambodia packs are conservative stubs.
 

@@ -1,9 +1,11 @@
 [docs/kaki/troubleshooting.md, ---
 summary: "Recover from Kaki installation, onboarding, Gateway, and control failures."
 read_when:
-  - Kaki installation or onboarding failed
-  - A Kaki control surface is unavailable
-title: "Troubleshoot Kaki"
+
+- Kaki installation or onboarding failed
+- A Kaki control surface is unavailable
+  title: "Troubleshoot Kaki"
+
 ---
 
 Start with the smallest read-only checks:

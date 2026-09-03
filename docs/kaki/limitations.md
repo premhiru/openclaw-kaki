@@ -1,21 +1,23 @@
 [docs/kaki/limitations.md, ---
 summary: "Understand Kaki's current capability boundaries and release-evidence rules."
 read_when:
-  - You are deciding whether Kaki is ready for a live workflow
-  - You are interpreting a green Kaki test or acceptance report
-title: "Kaki known limitations"
+
+- You are deciding whether Kaki is ready for a live workflow
+- You are interpreting a green Kaki test or acceptance report
+  title: "Kaki known limitations"
+
 ---
 
 Kaki has broad deterministic coverage, but repository evidence and live-service evidence answer different questions. Use this page before giving Kaki external accounts, phone access, or financial authority.
 
 ## Evidence levels
 
-| Level | Proves | Does not prove |
-| --- | --- | --- |
-| Unit/fixture test | Parsing, policy, projections, failure handling, and recorded contract behavior | A third-party API, account, website, or physical device works now |
-| Clean-install CI | A fresh supported runner can install, build, onboard with a fixture profile, and pass the selected checks | Your credentials, network, daemon host, or channel allowlist is correct |
-| Operator live probe | One bounded call worked for the exact account and environment | Long-term availability or unrestricted workflow safety |
-| Release evidence | The named build completed its required non-fixture acceptance checks | Suitability for credentials or authority outside the documented scope |
+| Level               | Proves                                                                                                    | Does not prove                                                          |
+| ------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Unit/fixture test   | Parsing, policy, projections, failure handling, and recorded contract behavior                            | A third-party API, account, website, or physical device works now       |
+| Clean-install CI    | A fresh supported runner can install, build, onboard with a fixture profile, and pass the selected checks | Your credentials, network, daemon host, or channel allowlist is correct |
+| Operator live probe | One bounded call worked for the exact account and environment                                             | Long-term availability or unrestricted workflow safety                  |
+| Release evidence    | The named build completed its required non-fixture acceptance checks                                      | Suitability for credentials or authority outside the documented scope   |
 
 `pnpm --dir kaki acceptance` may report pending live checks and still be useful. `pnpm --dir kaki acceptance:release` is the strict gate and must not pass without non-fixture evidence for the exact build.
 

@@ -1,9 +1,11 @@
 [docs/kaki/index.md, ---
 summary: "Install, onboard, and operate Kaki, a self-hosted household agent for Southeast Asia."
 read_when:
-  - You are evaluating or starting Kaki
-  - You need to know what Kaki can safely do today
-title: "Kaki"
+
+- You are evaluating or starting Kaki
+- You need to know what Kaki can safely do today
+  title: "Kaki"
+
 ---
 
 Kaki is a self-hosted household agent built on OpenClaw. It adds a household profile, regional skill catalogue, operator controls, approval records, and Southeast Asian locale packs to the OpenClaw Gateway.
@@ -44,16 +46,16 @@ A fixture-backed check proves a contract in the repository. It does not prove th
 
 ## Capability status
 
-| Surface | Status | What that means |
-| --- | --- | --- |
-| Source installer and managed launcher | Implemented and CI-tested | Linux/macOS install, frozen dependencies, build, dry run, and unmanaged-launcher refusal are covered. |
-| Profile validation and workspace seeding | Implemented and CI-tested | Required fields and SecretRefs are validated; maintained files are added without replacing household edits. |
-| Kaki Control UI and HTTP handlers | Implemented with limitations | Authenticated routes and action schemas are tested. Some editing and approval-resume interactions are not complete. |
-| Telegram household controls | Implemented and owner-gated | Kaki registers the commands in [Use Kaki](/kaki/using-kaki). `/status` and `/approve` remain OpenClaw-owned. |
-| Skills and approval ledger | Implemented and fixture-tested | Risky skill plans can stop before commit and create single-use, facts-bound approvals. Live vendor completion still needs evidence. |
-| WhatsApp, Telegram, model, LTA, and OneMap accounts | Operator verification required | Kaki cannot prove credentials, provider terms, allowlists, or live availability from repository tests. |
-| Physical Android control | Experimental/incomplete | The currently packaged Android handler and Kaki companion use different node command contracts. Do not rely on end-to-end phone control. |
-| Pause, cost budget, and quiet hours | Partial | These values can be displayed or stored, but enforcement is not complete across skill and monitor execution. |
+| Surface                                             | Status                         | What that means                                                                                                                          |
+| --------------------------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Source installer and managed launcher               | Implemented and CI-tested      | Linux/macOS install, frozen dependencies, build, dry run, and unmanaged-launcher refusal are covered.                                    |
+| Profile validation and workspace seeding            | Implemented and CI-tested      | Required fields and SecretRefs are validated; maintained files are added without replacing household edits.                              |
+| Kaki Control UI and HTTP handlers                   | Implemented with limitations   | Authenticated routes and action schemas are tested. Some editing and approval-resume interactions are not complete.                      |
+| Telegram household controls                         | Implemented and owner-gated    | Kaki registers the commands in [Use Kaki](/kaki/using-kaki). `/status` and `/approve` remain OpenClaw-owned.                             |
+| Skills and approval ledger                          | Implemented and fixture-tested | Risky skill plans can stop before commit and create single-use, facts-bound approvals. Live vendor completion still needs evidence.      |
+| WhatsApp, Telegram, model, LTA, and OneMap accounts | Operator verification required | Kaki cannot prove credentials, provider terms, allowlists, or live availability from repository tests.                                   |
+| Physical Android control                            | Experimental/incomplete        | The currently packaged Android handler and Kaki companion use different node command contracts. Do not rely on end-to-end phone control. |
+| Pause, cost budget, and quiet hours                 | Partial                        | These values can be displayed or stored, but enforcement is not complete across skill and monitor execution.                             |
 
 <Warning>
 Do not give Kaki bank credentials, Singpass credentials, reusable OTPs, or meaningful payment authority. Use dedicated accounts and low caps while evaluating it.

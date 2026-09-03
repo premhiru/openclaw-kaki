@@ -1,9 +1,11 @@
 [docs/kaki/using-kaki.md, ---
 summary: "Use Kaki from the dashboard and authenticated Telegram controls."
 read_when:
-  - Your Kaki Gateway is onboarded
-  - You need the operator commands or approval behavior
-title: "Use Kaki"
+
+- Your Kaki Gateway is onboarded
+- You need the operator commands or approval behavior
+  title: "Use Kaki"
+
 ---
 
 After onboarding, run the Gateway and open the dashboard:
@@ -22,20 +24,20 @@ The Kaki tab is at `/plugins/kaki/control` inside the authenticated OpenClaw Con
 
 Kaki commands require an authenticated sender who is the configured household owner.
 
-| Command | Result |
-| --- | --- |
-| `/household` | List household members and language settings. |
-| `/journey` | List the household journey timeline. |
-| `/skills` | List maintained, learned, and phone skills. |
-| `/cron` | List Kaki schedules and their next run. |
-| `/locale` | Show the active locale. |
-| `/locale sg\|my\|id\|th\|vn\|ph\|mm\|kh` | Change the active locale. |
-| `/phone screenshot` | Request a bounded screenshot action from the configured phone owner. |
-| `/phone tap <visible-target>` | Request a tap by visible target text. Physical-phone support is incomplete. |
-| `/relink-wa` | Start the trusted local WhatsApp relink flow. |
-| `/deny <approval-id> <facts-hash>` | Deny the exact pending approval facts. |
-| `/pause` / `/resume` | Store the requested automation state. Enforcement is not complete across all paths. |
-| `/cost` | Display the recorded cost projection. It is not complete billing data. |
+| Command                                  | Result                                                                              |
+| ---------------------------------------- | ----------------------------------------------------------------------------------- |
+| `/household`                             | List household members and language settings.                                       |
+| `/journey`                               | List the household journey timeline.                                                |
+| `/skills`                                | List maintained, learned, and phone skills.                                         |
+| `/cron`                                  | List Kaki schedules and their next run.                                             |
+| `/locale`                                | Show the active locale.                                                             |
+| `/locale sg\|my\|id\|th\|vn\|ph\|mm\|kh` | Change the active locale.                                                           |
+| `/phone screenshot`                      | Request a bounded screenshot action from the configured phone owner.                |
+| `/phone tap <visible-target>`            | Request a tap by visible target text. Physical-phone support is incomplete.         |
+| `/relink-wa`                             | Start the trusted local WhatsApp relink flow.                                       |
+| `/deny <approval-id> <facts-hash>`       | Deny the exact pending approval facts.                                              |
+| `/pause` / `/resume`                     | Store the requested automation state. Enforcement is not complete across all paths. |
+| `/cost`                                  | Display the recorded cost projection. It is not complete billing data.              |
 
 OpenClaw, not the Kaki plugin, owns `/status` and `/approve`. Kaki does not register a separate `/approve` command; follow the approval surface supplied by the host and verify that the approval ID and facts hash still match.
 

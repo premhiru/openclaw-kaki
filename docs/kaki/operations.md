@@ -1,9 +1,11 @@
 [docs/kaki/operations.md, ---
 summary: "Operate, back up, update, and recover a Kaki Gateway."
 read_when:
-  - You operate an installed Kaki Gateway
-  - You are updating or recovering Kaki
-title: "Operate Kaki"
+
+- You operate an installed Kaki Gateway
+- You are updating or recovering Kaki
+  title: "Operate Kaki"
+
 ---
 
 Kaki keeps its state separate from the default OpenClaw state. Unless `KAKI_HOME` is set, the launcher uses:

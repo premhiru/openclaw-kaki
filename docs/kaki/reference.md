@@ -1,20 +1,22 @@
 [docs/kaki/reference.md, ---
 summary: "Kaki CLI, state, configuration, Telegram, and HTTP reference."
 read_when:
-  - You need exact Kaki commands or limits
-  - You are integrating with the Kaki control API
-title: "Kaki reference"
+
+- You need exact Kaki commands or limits
+- You are integrating with the Kaki control API
+  title: "Kaki reference"
+
 ---
 
 ## Launcher and state
 
-| Item | Default |
-| --- | --- |
-| Launcher | `$HOME/.local/bin/kaki` |
-| State | `${KAKI_HOME:-$HOME/.kaki}` |
-| Config | `${KAKI_HOME:-$HOME/.kaki}/kaki.json` |
-| Workspace | `${KAKI_HOME:-$HOME/.kaki}/workspace` |
-| Timezone used by Kaki locale/monitors | `Asia/Singapore` |
+| Item                                  | Default                               |
+| ------------------------------------- | ------------------------------------- |
+| Launcher                              | `$HOME/.local/bin/kaki`               |
+| State                                 | `${KAKI_HOME:-$HOME/.kaki}`           |
+| Config                                | `${KAKI_HOME:-$HOME/.kaki}/kaki.json` |
+| Workspace                             | `${KAKI_HOME:-$HOME/.kaki}/workspace` |
+| Timezone used by Kaki locale/monitors | `Asia/Singapore`                      |
 
 The launcher maps Kaki state into the OpenClaw runtime and disables OpenClaw update checks, usage reporting, and OpenTelemetry for that process.
 
