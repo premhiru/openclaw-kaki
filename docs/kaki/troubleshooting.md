@@ -1,4 +1,4 @@
-[docs/kaki/troubleshooting.md, ---
+---
 summary: "Recover from Kaki installation, onboarding, Gateway, and control failures."
 read_when:
 
@@ -122,4 +122,4 @@ Include:
 - sanitized `kaki gateway status` and `kaki status --deep --json`
 - whether the failure reproduces with channels skipped
 
-Exclude profile contents, SecretRef values, QR codes, tokens, household messages, exact private addresses, approval payloads, and raw provider responses.].Value
+Exclude profile contents, SecretRef values, QR codes, tokens, household messages, exact private addresses, approval payloads, and raw provider responses.

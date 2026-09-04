@@ -1,4 +1,4 @@
-[kaki/README.md, # Kaki workspace
+# Kaki workspace
 
 This directory contains Kaki's household product packages, regional skills, fixtures, evaluation harness, operator documentation, and acceptance tooling. The runtime plugin lives at `extensions/kaki`; the repository-root `kaki.mjs` launcher runs it on OpenClaw.
 
@@ -76,4 +76,4 @@ Never put plaintext secrets in plugin config, profiles, fixtures, screenshots, o
 
 ## License and upstream
 
-Kaki is MIT licensed. Fork provenance and the pinned upstream are recorded in [UPSTREAM.md](UPSTREAM.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).].Value
+Kaki is MIT licensed. Fork provenance and the pinned upstream are recorded in [UPSTREAM.md](UPSTREAM.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

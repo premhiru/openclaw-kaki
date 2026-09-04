@@ -1,4 +1,4 @@
-[docs/kaki/quickstart.md, ---
+---
 summary: "Install Kaki from source and verify a local Gateway."
 read_when:
 
@@ -137,4 +137,4 @@ Open `/plugins/kaki/control` through the authenticated dashboard. The same path 
 - `Kaki runtime owners are unavailable`: finish onboarding, then restart the Gateway.
 - A profile field is rejected: compare it with [Onboarding](/kaki/onboarding) and the shipped example.
 
-Continue with [Use Kaki](/kaki/using-kaki), or use [Troubleshooting](/kaki/troubleshooting) for recovery.].Value
+Continue with [Use Kaki](/kaki/using-kaki), or use [Troubleshooting](/kaki/troubleshooting) for recovery.

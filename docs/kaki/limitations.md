@@ -1,4 +1,4 @@
-[docs/kaki/limitations.md, ---
+---
 summary: "Understand Kaki's current capability boundaries and release-evidence rules."
 read_when:
 
@@ -60,4 +60,4 @@ Onboarding validates the required reference IDs, but several are not yet used to
 - Record the source commit and sanitized evidence for every live probe.
 - Remove or rotate evaluation credentials when testing ends.
 
-For setup, use the [Quickstart](/kaki/quickstart). For a failed boundary, use [Troubleshooting](/kaki/troubleshooting).].Value
+For setup, use the [Quickstart](/kaki/quickstart). For a failed boundary, use [Troubleshooting](/kaki/troubleshooting).

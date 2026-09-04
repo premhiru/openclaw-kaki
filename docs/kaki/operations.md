@@ -1,4 +1,4 @@
-[docs/kaki/operations.md, ---
+---
 summary: "Operate, back up, update, and recover a Kaki Gateway."
 read_when:
 
@@ -83,4 +83,4 @@ Onboarding preserves existing seeded workspace files. Use explicit OpenClaw conf
 4. Preserve approval records and relevant logs without copying secrets or household message bodies into public issues.
 5. Roll back only after preserving evidence and confirming the target commit.
 
-For symptom-first recovery, use [Troubleshooting](/kaki/troubleshooting). For acceptance and live-evidence boundaries, see [Known limitations](/kaki/limitations).].Value
+For symptom-first recovery, use [Troubleshooting](/kaki/troubleshooting). For acceptance and live-evidence boundaries, see [Known limitations](/kaki/limitations).

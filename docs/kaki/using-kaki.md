@@ -1,4 +1,4 @@
-[docs/kaki/using-kaki.md, ---
+---
 summary: "Use Kaki from the dashboard and authenticated Telegram controls."
 read_when:
 
@@ -73,4 +73,4 @@ Quiet-hours configuration exists, but enforcement is incomplete. All current mon
 3. Open the authenticated Kaki tab and refresh the snapshot.
 4. Check `kaki status --deep` after any channel or model change.
 
-If runtime owners are unavailable, finish onboarding and restart the Gateway. See [Troubleshooting](/kaki/troubleshooting).].Value
+If runtime owners are unavailable, finish onboarding and restart the Gateway. See [Troubleshooting](/kaki/troubleshooting).

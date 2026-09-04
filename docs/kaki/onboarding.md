@@ -1,4 +1,4 @@
-[docs/kaki/onboarding.md, ---
+---
 summary: "Prepare and validate Kaki's private household profile."
 read_when:
 
@@ -109,4 +109,4 @@ Then open the dashboard:
 kaki dashboard
 ```
 
-A healthy Gateway plus accessible authenticated Kaki tab proves the local runtime path. It does not prove WhatsApp, a physical Android phone, or external provider readiness. Track those separately as described in [Known limitations](/kaki/limitations).].Value
+A healthy Gateway plus accessible authenticated Kaki tab proves the local runtime path. It does not prove WhatsApp, a physical Android phone, or external provider readiness. Track those separately as described in [Known limitations](/kaki/limitations).

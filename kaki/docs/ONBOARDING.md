@@ -1,4 +1,4 @@
-[kaki/docs/ONBOARDING.md, # Onboard a household
+# Onboard a household
 
 This is the repository-facing onboarding contract. For the task-first operator guide, expected results, and recovery paths, see [Kaki onboarding](../../docs/kaki/onboarding.md).
 
@@ -74,4 +74,4 @@ A healthy local Gateway and authenticated `/plugins/kaki/control` tab prove the 
 - The packaged Android handler and separate Kaki companion do not yet provide a supported end-to-end phone-control contract.
 - OpenClaw owns `/status` and `/approve`; Kaki registers `/deny` but not a separate `/approve` command.
 
-Read [Known limitations](../../docs/kaki/limitations.md) before live testing and [Troubleshooting](../../docs/kaki/troubleshooting.md) before deleting or resetting state.].Value
+Read [Known limitations](../../docs/kaki/limitations.md) before live testing and [Troubleshooting](../../docs/kaki/troubleshooting.md) before deleting or resetting state.

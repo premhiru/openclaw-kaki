@@ -1,4 +1,4 @@
-[KAKI.md, # Kaki
+# Kaki
 
 Kaki is a self-hosted household agent for Southeast Asia, built on the complete OpenClaw runtime. It adds a private household profile, regional skill catalogue, operator controls, approval records, and locale packs while OpenClaw provides the Gateway, authentication, models, channels, sessions, and Control UI.
 
@@ -51,4 +51,4 @@ The upstream-compatible `openclaw` launcher remains available for diagnostics an
 
 Do not give Kaki bank credentials, Singpass credentials, reusable OTPs, production medical access, or meaningful payment authority. Use dedicated accounts, minimal permissions, provider-side caps, and bounded live probes.
 
-Repository tests cover deterministic contracts. Live release evidence is tracked separately; read [Known limitations](docs/kaki/limitations.md) before relying on WhatsApp, Gmail, Grab, government portals, provider data, cost budgets, pause behavior, or phone automation.].Value
+Repository tests cover deterministic contracts. Live release evidence is tracked separately; read [Known limitations](docs/kaki/limitations.md) before relying on WhatsApp, Gmail, Grab, government portals, provider data, cost budgets, pause behavior, or phone automation.

@@ -1,4 +1,4 @@
-[docs/kaki/index.md, ---
+---
 summary: "Install, onboard, and operate Kaki, a self-hosted household agent for Southeast Asia."
 read_when:
 
@@ -69,4 +69,4 @@ Do not give Kaki bank credentials, Singpass credentials, reusable OTPs, or meani
 - [Operations](/kaki/operations): health, backups, updates, and rollback
 - [Troubleshooting](/kaki/troubleshooting): symptom-first recovery
 - [Reference](/kaki/reference): CLI, configuration, HTTP routes, and limits
-- [Known limitations](/kaki/limitations): exact boundaries and release-evidence rules].Value
+- [Known limitations](/kaki/limitations): exact boundaries and release-evidence rules

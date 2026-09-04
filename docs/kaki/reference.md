@@ -1,4 +1,4 @@
-[docs/kaki/reference.md, ---
+---
 summary: "Kaki CLI, state, configuration, Telegram, and HTTP reference."
 read_when:
 
@@ -120,4 +120,4 @@ The presence of an action schema does not guarantee every packaged UI interactio
 
 ## Approval properties
 
-Implemented Kaki approval grants are bound to an approval ID and facts hash, restricted to the operator, single-use, compare-and-swap protected, and expire after two hours by default. A stale decision returns a conflict and requires a new snapshot.].Value
+Implemented Kaki approval grants are bound to an approval ID and facts hash, restricted to the operator, single-use, compare-and-swap protected, and expire after two hours by default. A stale decision returns a conflict and requires a new snapshot.
