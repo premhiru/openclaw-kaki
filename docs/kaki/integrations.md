@@ -13,14 +13,14 @@ Kaki combines OpenClaw owners with Kaki regional packages and playbooks. The rep
 
 Use these terms precisely:
 
-| State | Evidence |
-| --- | --- |
-| Described | A playbook or engineering contract exists |
-| Implemented | Executable code exists behind a typed boundary |
-| Fixture-tested | Deterministic tests cover expected and failure behavior |
-| Clean-install tested | A fresh supported runner can install and configure it |
-| Live-probed | One bounded call worked for this exact account/environment |
-| Operational | Monitoring, limits, recovery, terms, and ownership are documented |
+| State                | Evidence                                                          |
+| -------------------- | ----------------------------------------------------------------- |
+| Described            | A playbook or engineering contract exists                         |
+| Implemented          | Executable code exists behind a typed boundary                    |
+| Fixture-tested       | Deterministic tests cover expected and failure behavior           |
+| Clean-install tested | A fresh supported runner can install and configure it             |
+| Live-probed          | One bounded call worked for this exact account/environment        |
+| Operational          | Monitoring, limits, recovery, terms, and ownership are documented |
 
 Never label an integration “ready” based only on configuration, a SecretRef, or a green fixture.
 
@@ -138,13 +138,13 @@ For each live service, record privately:
 
 ## Troubleshoot by boundary
 
-| Failure | Diagnose first |
-| --- | --- |
-| Config reference resolves but owner is unavailable | Plugin/runtime-owner wiring |
-| Owner exists but provider rejects request | Credential, scope, endpoint, terms, or rate limit |
-| Data returns but looks wrong | Source timestamp, locale, normalization, units |
-| Browser stops before commit | Expected approval/handoff or page drift |
-| Phone command unavailable | Known contract mismatch |
-| Model works but cost is unexpected | Provider billing and routing; Kaki projection is incomplete |
+| Failure                                            | Diagnose first                                              |
+| -------------------------------------------------- | ----------------------------------------------------------- |
+| Config reference resolves but owner is unavailable | Plugin/runtime-owner wiring                                 |
+| Owner exists but provider rejects request          | Credential, scope, endpoint, terms, or rate limit           |
+| Data returns but looks wrong                       | Source timestamp, locale, normalization, units              |
+| Browser stops before commit                        | Expected approval/handoff or page drift                     |
+| Phone command unavailable                          | Known contract mismatch                                     |
+| Model works but cost is unexpected                 | Provider billing and routing; Kaki projection is incomplete |
 
 See [Testing and evidence](/kaki/testing) before promoting an integration to household use.

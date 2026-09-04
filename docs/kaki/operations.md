@@ -13,11 +13,11 @@ Kaki keeps its state separate from the default OpenClaw runtime. Operate one aut
 
 Unless `KAKI_HOME` is set, the launcher uses:
 
-| Data | Path |
-| --- | --- |
-| State root | `~/.kaki` |
-| Gateway config | `~/.kaki/kaki.json` |
-| Workspace | `~/.kaki/workspace` |
+| Data                  | Path                            |
+| --------------------- | ------------------------------- |
+| State root            | `~/.kaki`                       |
+| Gateway config        | `~/.kaki/kaki.json`             |
+| Workspace             | `~/.kaki/workspace`             |
 | Plugin/OpenClaw state | beneath the resolved state root |
 
 Check the effective configuration without printing private contents:
@@ -226,12 +226,12 @@ Include exact source commit, OS/Node version, service state, sanitized deep stat
 
 ## Routine schedule
 
-| Frequency | Tasks |
-| --- | --- |
-| Daily | Gateway/deep status, disk, failed schedules, pending approvals |
-| Weekly | Provider read-only probes, logs/alerts, backup completion |
-| Monthly | Restore rehearsal, credential/account review, dependency/security updates |
-| Before release | Full Kaki verification, clean install evidence, limitations review |
-| After incident | Rotation, reconciliation, regression test, runbook update |
+| Frequency      | Tasks                                                                     |
+| -------------- | ------------------------------------------------------------------------- |
+| Daily          | Gateway/deep status, disk, failed schedules, pending approvals            |
+| Weekly         | Provider read-only probes, logs/alerts, backup completion                 |
+| Monthly        | Restore rehearsal, credential/account review, dependency/security updates |
+| Before release | Full Kaki verification, clean install evidence, limitations review        |
+| After incident | Rotation, reconciliation, regression test, runbook update                 |
 
 For symptom-first diagnosis, use [Troubleshooting](/kaki/troubleshooting). For host hardening and exposure response, see [Security](/kaki/security).

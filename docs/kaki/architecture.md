@@ -33,16 +33,16 @@ The Gateway owns authentication, channel connections, sessions, models, and plug
 
 ## Components
 
-| Component | Responsibility | Source |
-| --- | --- | --- |
-| Managed launcher | Isolates state, maps Kaki to OpenClaw, seeds the workspace, and forwards runtime commands | `kaki.mjs` |
-| Installer | Validates the host, installs frozen dependencies, builds, and writes the launcher | `kaki/scripts/install.sh` |
-| Onboarding extension | Validates the profile, resolves SecretRefs, provisions private state, and enables the plugin | `extensions/kaki/src/onboarding-*` |
-| Kaki plugin | Registers the Control UI, HTTP handlers, Telegram commands, and optional skill tool | `extensions/kaki` |
-| Runtime owners | Adapt Kaki operations onto authoritative OpenClaw or package services | `extensions/kaki/src/host-owners.ts` |
-| Approval ledger | Stores pending decisions and enforces ID, actor, facts-hash, expiry, and single-use checks | `extensions/kaki/src/approval-ledger.ts` |
-| Regional packages | Locale, memory, models, data, browser, phone, security, and skills | `kaki/packages` |
-| Control UI | Presents bounded household projections and operator actions | `kaki/apps/control-ui` |
+| Component            | Responsibility                                                                               | Source                                   |
+| -------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| Managed launcher     | Isolates state, maps Kaki to OpenClaw, seeds the workspace, and forwards runtime commands    | `kaki.mjs`                               |
+| Installer            | Validates the host, installs frozen dependencies, builds, and writes the launcher            | `kaki/scripts/install.sh`                |
+| Onboarding extension | Validates the profile, resolves SecretRefs, provisions private state, and enables the plugin | `extensions/kaki/src/onboarding-*`       |
+| Kaki plugin          | Registers the Control UI, HTTP handlers, Telegram commands, and optional skill tool          | `extensions/kaki`                        |
+| Runtime owners       | Adapt Kaki operations onto authoritative OpenClaw or package services                        | `extensions/kaki/src/host-owners.ts`     |
+| Approval ledger      | Stores pending decisions and enforces ID, actor, facts-hash, expiry, and single-use checks   | `extensions/kaki/src/approval-ledger.ts` |
+| Regional packages    | Locale, memory, models, data, browser, phone, security, and skills                           | `kaki/packages`                          |
+| Control UI           | Presents bounded household projections and operator actions                                  | `kaki/apps/control-ui`                   |
 
 ## Startup sequence
 
@@ -125,15 +125,15 @@ docs/kaki/                       public user and operator manual
 
 ## Failure ownership
 
-| Symptom | Likely owner |
-| --- | --- |
-| Launcher or source install fails | Kaki installer/launcher |
-| Gateway cannot start or authenticate | OpenClaw Gateway |
-| Model or standard channel is unavailable | OpenClaw provider/channel owner |
-| Kaki tab returns `503` | Kaki runtime-owner resolution |
-| Kaki action returns `400` | Kaki request schema or intent guard |
-| Approval returns `409` | Kaki approval ledger; refresh facts |
-| External website or device fails | Browser, phone, provider, or account boundary |
+| Symptom                                  | Likely owner                                  |
+| ---------------------------------------- | --------------------------------------------- |
+| Launcher or source install fails         | Kaki installer/launcher                       |
+| Gateway cannot start or authenticate     | OpenClaw Gateway                              |
+| Model or standard channel is unavailable | OpenClaw provider/channel owner               |
+| Kaki tab returns `503`                   | Kaki runtime-owner resolution                 |
+| Kaki action returns `400`                | Kaki request schema or intent guard           |
+| Approval returns `409`                   | Kaki approval ledger; refresh facts           |
+| External website or device fails         | Browser, phone, provider, or account boundary |
 
 ## Design versus released capability
 

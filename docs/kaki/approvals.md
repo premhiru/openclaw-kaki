@@ -21,21 +21,21 @@ Every decision includes a rule ID, reason code, evaluation time, and SHA-256 fac
 
 ## Default categories
 
-| Situation | Default outcome |
-| --- | --- |
-| Read-only operation | Automatic |
-| Allowlisted household message | Automatic |
-| First external contact | Ask |
-| Previously approved/allowlisted external thread | Automatic |
-| Booking | Ask |
-| Sharing household data | Ask |
-| Account change | Ask |
-| Singpass/government identity step | Always ask and hand off |
-| Invalid or missing money facts | Deny |
-| Money above a configured hard limit | Deny |
-| Wallet action above its cap | Deny |
-| Known-payee SGD amount below the automatic cap | May be automatic |
-| Other payment | Ask |
+| Situation                                       | Default outcome         |
+| ----------------------------------------------- | ----------------------- |
+| Read-only operation                             | Automatic               |
+| Allowlisted household message                   | Automatic               |
+| First external contact                          | Ask                     |
+| Previously approved/allowlisted external thread | Automatic               |
+| Booking                                         | Ask                     |
+| Sharing household data                          | Ask                     |
+| Account change                                  | Ask                     |
+| Singpass/government identity step               | Always ask and hand off |
+| Invalid or missing money facts                  | Deny                    |
+| Money above a configured hard limit             | Deny                    |
+| Wallet action above its cap                     | Deny                    |
+| Known-payee SGD amount below the automatic cap  | May be automatic        |
+| Other payment                                   | Ask                     |
 
 The public onboarding profile records an automatic cap and currency. Start at zero while evaluating. Provider-side limits remain necessary because Kaki's cost/budget projection is not a universal hard limit.
 

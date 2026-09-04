@@ -11,13 +11,13 @@ Kaki uses OpenClaw's Gateway and channel integrations. The Kaki plugin adds an a
 
 ## Channel matrix
 
-| Surface | Kaki support | Authentication | Primary use |
-| --- | --- | --- | --- |
-| Control UI | Packaged Kaki tab | Gateway authentication and `operator.write` for actions | Household overview and operator actions |
-| Telegram | Kaki command set | Authorized sender plus household-owner check | Remote operator controls and status projections |
-| WhatsApp | OpenClaw-owned account, Kaki relink shortcut | OpenClaw channel session and allowlists | Household conversation after live verification |
-| WebChat | OpenClaw-owned | Gateway/session policy | Local evaluation and conversation |
-| Other OpenClaw channels | Available through extra-channel onboarding | Channel-specific | Optional; not Kaki-specific evidence |
+| Surface                 | Kaki support                                 | Authentication                                          | Primary use                                     |
+| ----------------------- | -------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------- |
+| Control UI              | Packaged Kaki tab                            | Gateway authentication and `operator.write` for actions | Household overview and operator actions         |
+| Telegram                | Kaki command set                             | Authorized sender plus household-owner check            | Remote operator controls and status projections |
+| WhatsApp                | OpenClaw-owned account, Kaki relink shortcut | OpenClaw channel session and allowlists                 | Household conversation after live verification  |
+| WebChat                 | OpenClaw-owned                               | Gateway/session policy                                  | Local evaluation and conversation               |
+| Other OpenClaw channels | Available through extra-channel onboarding   | Channel-specific                                        | Optional; not Kaki-specific evidence            |
 
 ## Control UI
 
@@ -38,19 +38,19 @@ The current UI displays more state than it can reliably edit. Verify owner state
 
 Kaki registers these owner-authenticated commands:
 
-| Command | Scope | Behavior |
-| --- | --- | --- |
-| `/household` | `operator.read` | Lists up to 20 projected household members |
-| `/journey` | `operator.read` | Lists up to 20 projected journey items |
-| `/skills` | `operator.read` | Lists maintained, learned, and phone skills |
-| `/cron` | `operator.read` | Lists schedules and next-run projections |
-| `/locale [code]` | `operator.write` | Reads or changes the active locale |
-| `/phone screenshot` | `operator.write` | Requests the experimental screenshot owner |
-| `/phone tap <target>` | `operator.write` | Requests an experimental visible-target tap |
-| `/relink-wa` | `operator.admin` | Starts the trusted WhatsApp relink owner |
-| `/deny <id> <facts-hash>` | `operator.write` | Denies the exact pending approval facts |
-| `/pause`, `/resume` | `operator.write` | Stores the projected pause flag |
-| `/cost` | `operator.read` | Shows recorded cost projections |
+| Command                   | Scope            | Behavior                                    |
+| ------------------------- | ---------------- | ------------------------------------------- |
+| `/household`              | `operator.read`  | Lists up to 20 projected household members  |
+| `/journey`                | `operator.read`  | Lists up to 20 projected journey items      |
+| `/skills`                 | `operator.read`  | Lists maintained, learned, and phone skills |
+| `/cron`                   | `operator.read`  | Lists schedules and next-run projections    |
+| `/locale [code]`          | `operator.write` | Reads or changes the active locale          |
+| `/phone screenshot`       | `operator.write` | Requests the experimental screenshot owner  |
+| `/phone tap <target>`     | `operator.write` | Requests an experimental visible-target tap |
+| `/relink-wa`              | `operator.admin` | Starts the trusted WhatsApp relink owner    |
+| `/deny <id> <facts-hash>` | `operator.write` | Denies the exact pending approval facts     |
+| `/pause`, `/resume`       | `operator.write` | Stores the projected pause flag             |
+| `/cost`                   | `operator.read`  | Shows recorded cost projections             |
 
 OpenClaw owns `/status` and `/approve`. Kaki intentionally does not register competing versions.
 
@@ -123,13 +123,13 @@ Kaki's repository tests cover command authorization and projections. Your channe
 
 ## Delivery troubleshooting
 
-| Symptom | Check |
-| --- | --- |
-| Command says runtime owners unavailable | Finish onboarding, restart the Gateway, check plugin config |
-| Owner command is rejected | Verify authorized sender mapping and configured operator |
-| Configured channel is pending | Complete the channel owner's authentication flow |
-| Message sends but no reply arrives | Inspect Gateway/channel status and delivery logs without exposing content |
-| Repeated `429` | Respect provider retry time; stop looping |
-| WhatsApp session is corrupt | Relink through the trusted local flow; revoke exposed linked devices |
+| Symptom                                 | Check                                                                     |
+| --------------------------------------- | ------------------------------------------------------------------------- |
+| Command says runtime owners unavailable | Finish onboarding, restart the Gateway, check plugin config               |
+| Owner command is rejected               | Verify authorized sender mapping and configured operator                  |
+| Configured channel is pending           | Complete the channel owner's authentication flow                          |
+| Message sends but no reply arrives      | Inspect Gateway/channel status and delivery logs without exposing content |
+| Repeated `429`                          | Respect provider retry time; stop looping                                 |
+| WhatsApp session is corrupt             | Relink through the trusted local flow; revoke exposed linked devices      |
 
 For channel-independent testing, onboard with `--skip-channels` and prove the local Gateway and authenticated Kaki tab first.

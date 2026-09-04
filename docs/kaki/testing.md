@@ -11,15 +11,15 @@ Kaki uses layered evidence. Unit tests prove local behavior, fixtures prove dete
 
 ## Evidence model
 
-| Evidence | Proves | Does not prove |
-| --- | --- | --- |
-| Static checks | Formatting, links, types, generated catalogue consistency | Runtime behavior |
-| Unit tests | Functions, policy, projections, parser boundaries | Provider/account availability |
-| QA/security tests | Cross-package scenarios and named threat controls | Live credentials or devices |
-| Fixture E2E | Deterministic workflow and recovery contract | Current website/app/provider behavior |
-| Clean-install CI | Fresh supported host can install and onboard | Your daemon, network, or account |
-| Bounded live probe | One exact read-only path worked at a time | Long-term availability or broad authority |
-| Strict release evidence | Named non-fixture gates passed for one build | Suitability beyond documented scope |
+| Evidence                | Proves                                                    | Does not prove                            |
+| ----------------------- | --------------------------------------------------------- | ----------------------------------------- |
+| Static checks           | Formatting, links, types, generated catalogue consistency | Runtime behavior                          |
+| Unit tests              | Functions, policy, projections, parser boundaries         | Provider/account availability             |
+| QA/security tests       | Cross-package scenarios and named threat controls         | Live credentials or devices               |
+| Fixture E2E             | Deterministic workflow and recovery contract              | Current website/app/provider behavior     |
+| Clean-install CI        | Fresh supported host can install and onboard              | Your daemon, network, or account          |
+| Bounded live probe      | One exact read-only path worked at a time                 | Long-term availability or broad authority |
+| Strict release evidence | Named non-fixture gates passed for one build              | Suitability beyond documented scope       |
 
 Always record the exact commit with evidence.
 
@@ -164,16 +164,16 @@ Never use a payment, government submission, booking, external message, or accoun
 
 Every important happy path needs a negative assertion:
 
-| Happy path | Required negative check |
-| --- | --- |
-| Owner command succeeds | Non-owner gets no household projection |
-| Authenticated UI loads | Unauthenticated request exposes no data |
-| Approval succeeds | Stale facts return conflict |
-| Skill prepares action | Denial prevents commit |
-| Provider returns data | Timeout/unavailable does not invent data |
-| Dedupe sends one notice | Replay does not duplicate it |
-| Installer writes launcher | Unmanaged file is not overwritten |
-| Onboarding seeds workspace | Existing household files are preserved |
+| Happy path                 | Required negative check                  |
+| -------------------------- | ---------------------------------------- |
+| Owner command succeeds     | Non-owner gets no household projection   |
+| Authenticated UI loads     | Unauthenticated request exposes no data  |
+| Approval succeeds          | Stale facts return conflict              |
+| Skill prepares action      | Denial prevents commit                   |
+| Provider returns data      | Timeout/unavailable does not invent data |
+| Dedupe sends one notice    | Replay does not duplicate it             |
+| Installer writes launcher  | Unmanaged file is not overwritten        |
+| Onboarding seeds workspace | Existing household files are preserved   |
 
 ## Classify failures
 

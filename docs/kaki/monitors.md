@@ -81,16 +81,16 @@ Disabling a projected monitor is not an incident-wide kill switch. Stop the sche
 
 Examples from the deterministic evaluators:
 
-| Kind | Notification condition |
-| --- | --- |
+| Kind                | Notification condition                                    |
+| ------------------- | --------------------------------------------------------- |
 | Rain before commute | Probability at least 60% and commute within 0–120 minutes |
-| Haze | PSI at least 100 |
-| CPF/SRS deadline | 0–14 days remaining |
-| IRAS window | Open and within the configured notice period |
-| Dengue near home | Cases above zero within the configured radius |
-| ERP change | Old and new rates differ and the new rate is finite |
-| Expiry monitors | Within the configured notice period |
-| Housing match | New match count above zero |
+| Haze                | PSI at least 100                                          |
+| CPF/SRS deadline    | 0–14 days remaining                                       |
+| IRAS window         | Open and within the configured notice period              |
+| Dengue near home    | Cases above zero within the configured radius             |
+| ERP change          | Old and new rates differ and the new rate is finite       |
+| Expiry monitors     | Within the configured notice period                       |
+| Housing match       | New match count above zero                                |
 
 These rules evaluate the provided facts; they do not verify that the facts came from the correct provider or observation time.
 
@@ -158,12 +158,12 @@ Avoid repeated urgency, opaque IDs, or instructions that imply a provider transa
 
 ## Common failures
 
-| Symptom | Likely cause |
-| --- | --- |
-| Schedule appears but never notifies | Collector or notification owner is not wired/healthy |
-| Notification is duplicated after restart | In-memory dedupe state was lost |
-| Notification arrives at the wrong time | Fixed Singapore timezone or unenforced quiet hours |
-| Provider data is stale | Collector/cache contract, not evaluator logic |
-| `/cron` is empty | Runtime owners unavailable or no configured templates |
+| Symptom                                  | Likely cause                                          |
+| ---------------------------------------- | ----------------------------------------------------- |
+| Schedule appears but never notifies      | Collector or notification owner is not wired/healthy  |
+| Notification is duplicated after restart | In-memory dedupe state was lost                       |
+| Notification arrives at the wrong time   | Fixed Singapore timezone or unenforced quiet hours    |
+| Provider data is stale                   | Collector/cache contract, not evaluator logic         |
+| `/cron` is empty                         | Runtime owners unavailable or no configured templates |
 
 For general recovery, see [Troubleshooting](/kaki/troubleshooting). For provider evidence, see [Integrations](/kaki/integrations).

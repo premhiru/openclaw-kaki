@@ -32,25 +32,25 @@ Use a feature branch. Do not develop against private household state or real cre
 
 ## Repository layout
 
-| Path | Purpose |
-| --- | --- |
-| `kaki.mjs` | managed launcher and workspace seeding |
-| `extensions/kaki` | OpenClaw plugin, commands, HTTP routes, onboarding, owners |
-| `kaki/apps/control-ui` | Kaki operator interface |
-| `kaki/packages/core` | Kaki contracts, delivery, learning, and minimal CLI |
-| `kaki/packages/security` | policy, audit, secrets, trust, pacing, redaction |
-| `kaki/packages/memory` | household graph and persistence helpers |
-| `kaki/packages/models` | model adapters, routing, normalization, cost/audio helpers |
-| `kaki/packages/sg-data` | Singapore data and monitor logic |
-| `kaki/packages/sea-data` | regional capabilities, QR, profiles, and clients |
-| `kaki/packages/browser-node` | browser execution surface |
-| `kaki/packages/phone-node` | ADB/companion phone surface and playbooks |
-| `kaki/packages/approval-node` | approval cards, rendering, and lifecycle contracts |
-| `kaki/packages/locale` | regional language/format assets |
-| `kaki/packages/skills` | maintained regional playbooks and catalogue |
-| `kaki/tests`, `kaki/evals` | product QA, fixtures, and evaluation evidence |
-| `docs/kaki` | public documentation |
-| `kaki/docs` | engineering specifications and internal runbooks |
+| Path                          | Purpose                                                    |
+| ----------------------------- | ---------------------------------------------------------- |
+| `kaki.mjs`                    | managed launcher and workspace seeding                     |
+| `extensions/kaki`             | OpenClaw plugin, commands, HTTP routes, onboarding, owners |
+| `kaki/apps/control-ui`        | Kaki operator interface                                    |
+| `kaki/packages/core`          | Kaki contracts, delivery, learning, and minimal CLI        |
+| `kaki/packages/security`      | policy, audit, secrets, trust, pacing, redaction           |
+| `kaki/packages/memory`        | household graph and persistence helpers                    |
+| `kaki/packages/models`        | model adapters, routing, normalization, cost/audio helpers |
+| `kaki/packages/sg-data`       | Singapore data and monitor logic                           |
+| `kaki/packages/sea-data`      | regional capabilities, QR, profiles, and clients           |
+| `kaki/packages/browser-node`  | browser execution surface                                  |
+| `kaki/packages/phone-node`    | ADB/companion phone surface and playbooks                  |
+| `kaki/packages/approval-node` | approval cards, rendering, and lifecycle contracts         |
+| `kaki/packages/locale`        | regional language/format assets                            |
+| `kaki/packages/skills`        | maintained regional playbooks and catalogue                |
+| `kaki/tests`, `kaki/evals`    | product QA, fixtures, and evaluation evidence              |
+| `docs/kaki`                   | public documentation                                       |
+| `kaki/docs`                   | engineering specifications and internal runbooks           |
 
 ## Package boundaries
 

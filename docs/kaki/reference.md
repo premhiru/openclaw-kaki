@@ -9,23 +9,23 @@ title: "Kaki reference"
 
 ## Versions and platforms
 
-| Item | Value |
-| --- | --- |
-| Kaki workspace version | `0.9.0` |
-| Supported installer hosts | Ubuntu/Linux and macOS |
-| Native Windows installer | Unsupported |
-| Node.js | `22.22.3–22.x`, `24.15.0–24.x`, or `25.9.0–25.x` |
-| pnpm | Repository-pinned `12.1.0` through Corepack |
+| Item                      | Value                                            |
+| ------------------------- | ------------------------------------------------ |
+| Kaki workspace version    | `0.9.0`                                          |
+| Supported installer hosts | Ubuntu/Linux and macOS                           |
+| Native Windows installer  | Unsupported                                      |
+| Node.js                   | `22.22.3–22.x`, `24.15.0–24.x`, or `25.9.0–25.x` |
+| pnpm                      | Repository-pinned `12.1.0` through Corepack      |
 
 ## Paths and environment
 
-| Item | Default |
-| --- | --- |
-| Managed launcher | `$HOME/.local/bin/kaki` |
-| State root | `${KAKI_HOME:-$HOME/.kaki}` |
-| Gateway config | `${KAKI_HOME:-$HOME/.kaki}/kaki.json` |
-| Workspace | `${KAKI_HOME:-$HOME/.kaki}/workspace` |
-| Current monitor timezone | `Asia/Singapore` |
+| Item                     | Default                               |
+| ------------------------ | ------------------------------------- |
+| Managed launcher         | `$HOME/.local/bin/kaki`               |
+| State root               | `${KAKI_HOME:-$HOME/.kaki}`           |
+| Gateway config           | `${KAKI_HOME:-$HOME/.kaki}/kaki.json` |
+| Workspace                | `${KAKI_HOME:-$HOME/.kaki}/workspace` |
+| Current monitor timezone | `Asia/Singapore`                      |
 
 The launcher sets `OPENCLAW_STATE_DIR`, `OPENCLAW_CONFIG_PATH`, and `OPENCLAW_WORKSPACE_DIR` from `KAKI_HOME` only when those variables are not already set. It disables automatic update checks, usage reporting, and OpenTelemetry for the Kaki process.
 
@@ -105,35 +105,35 @@ Reference rules:
 
 ## Private profile limits
 
-| Field | Limit/rule |
-| --- | --- |
-| `members` | 1–100; operator ID must match a member ID |
-| `addresses` | 1–32 |
-| Address label | `home`, `office`, or `school` |
-| `approvalAutoCap` | Non-negative |
-| `approvalCurrency` | Use `SGD` for the implemented known-payee cap path |
+| Field                   | Limit/rule                                          |
+| ----------------------- | --------------------------------------------------- |
+| `members`               | 1–100; operator ID must match a member ID           |
+| `addresses`             | 1–32                                                |
+| Address label           | `home`, `office`, or `school`                       |
+| `approvalAutoCap`       | Non-negative                                        |
+| `approvalCurrency`      | Use `SGD` for the implemented known-payee cap path  |
 | `monthlyModelBudgetUsd` | Recorded projection, not universal hard enforcement |
-| `secretRefs` | Exactly five resolvable references |
+| `secretRefs`            | Exactly five resolvable references                  |
 
 Required SecretRef keys: `householdMemoryKey`, `model`, `ltaDataMall`, `oneMap`, and `phonePairing`. Supported sources: `env`, `file`, `exec`, `store`.
 
 ## Telegram commands
 
-| Command | Owner | Scope |
-| --- | --- | --- |
-| `/status` | OpenClaw host | Host-defined |
-| `/approve` | OpenClaw host | Host-defined |
-| `/deny <approval-id> <facts-hash>` | Kaki | `operator.write` |
-| `/relink-wa` | Kaki | `operator.admin` |
-| `/journey` | Kaki | `operator.read` |
-| `/household` | Kaki | `operator.read` |
-| `/phone screenshot` | Kaki | `operator.write` |
-| `/phone tap <visible-target>` | Kaki | `operator.write` |
-| `/skills` | Kaki | `operator.read` |
-| `/cron` | Kaki | `operator.read` |
-| `/locale [sg|my|id|th|vn|ph|mm|kh]` | Kaki | `operator.write` |
-| `/pause`, `/resume` | Kaki | `operator.write` |
-| `/cost` | Kaki | `operator.read` |
+| Command                            | Owner         | Scope            |
+| ---------------------------------- | ------------- | ---------------- |
+| `/status`                          | OpenClaw host | Host-defined     |
+| `/approve`                         | OpenClaw host | Host-defined     |
+| `/deny <approval-id> <facts-hash>` | Kaki          | `operator.write` |
+| `/relink-wa`                       | Kaki          | `operator.admin` |
+| `/journey`                         | Kaki          | `operator.read`  |
+| `/household`                       | Kaki          | `operator.read`  |
+| `/phone screenshot`                | Kaki          | `operator.write` |
+| `/phone tap <visible-target>`      | Kaki          | `operator.write` |
+| `/skills`                          | Kaki          | `operator.read`  |
+| `/cron`                            | Kaki          | `operator.read`  |
+| `/locale [sg                       | my            | id               | th  | vn  | ph  | mm  | kh]` | Kaki | `operator.write` |
+| `/pause`, `/resume`                | Kaki          | `operator.write` |
+| `/cost`                            | Kaki          | `operator.read`  |
 
 Kaki commands are Telegram-only, require channel authentication, and require the sender to be the household owner. List responses show at most 20 rows and are capped at 4,000 characters.
 
@@ -280,18 +280,18 @@ General identifiers are non-empty strings no longer than 256 characters.
 
 ## HTTP responses
 
-| Status | Meaning |
-| ---: | --- |
-| `200` | Snapshot/action owner completed; action response includes a fresh snapshot |
-| `400` | Missing intent, invalid JSON, or unsupported/excess action schema |
-| `401`/`403` | Gateway authentication or scope rejected |
-| `405` | Method rejected by request guard |
-| `409` | Approval facts/status changed; refresh before deciding |
-| `413` | Body exceeded request limit |
-| `415` | JSON content type required |
-| `429` | More than eight Kaki control requests in flight |
-| `503` | Runtime owners unavailable or owner call failed |
-| `502` | Owner projection exceeded the 1 MB response limit |
+|      Status | Meaning                                                                    |
+| ----------: | -------------------------------------------------------------------------- |
+|       `200` | Snapshot/action owner completed; action response includes a fresh snapshot |
+|       `400` | Missing intent, invalid JSON, or unsupported/excess action schema          |
+| `401`/`403` | Gateway authentication or scope rejected                                   |
+|       `405` | Method rejected by request guard                                           |
+|       `409` | Approval facts/status changed; refresh before deciding                     |
+|       `413` | Body exceeded request limit                                                |
+|       `415` | JSON content type required                                                 |
+|       `429` | More than eight Kaki control requests in flight                            |
+|       `503` | Runtime owners unavailable or owner call failed                            |
+|       `502` | Owner projection exceeded the 1 MB response limit                          |
 
 Exact request-guard status behavior is inherited from the OpenClaw webhook guard implementation.
 

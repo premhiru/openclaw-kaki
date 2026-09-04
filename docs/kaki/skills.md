@@ -11,16 +11,16 @@ Kaki ships declarative playbooks for household tasks in Singapore and Southeast 
 
 ## Catalogue coverage
 
-| Catalogue | Count | Scope |
-| --- | ---: | --- |
-| Singapore (`sg`) | 46 | Household, transport, weather, government, commerce, travel, and family workflows |
-| Regional (`sea`) | 8 | Cross-border QR, remittance, halal, prayer, travel, holidays, and language bridging |
-| Malaysia (`my`) | 5 | DuitNow, Touch 'n Go, JPJ, LHDN, and MyEG |
-| Indonesia (`id`) | 5 | QRIS, Gojek, Tokopedia, PLN, and BPJS |
-| Thailand (`th`) | 5 | PromptPay, LINE MAN, transit, revenue, and weather |
-| Vietnam (`vn`) | 5 | VietQR, Zalo, MoMo, EVN, and VNeID handoff |
-| Philippines (`ph`) | 5 | QR Ph, GCash, eGovPH, Meralco, and PAGASA |
-| Phone playbooks | 11 | Bounded mobile-app task descriptions |
+| Catalogue          | Count | Scope                                                                               |
+| ------------------ | ----: | ----------------------------------------------------------------------------------- |
+| Singapore (`sg`)   |    46 | Household, transport, weather, government, commerce, travel, and family workflows   |
+| Regional (`sea`)   |     8 | Cross-border QR, remittance, halal, prayer, travel, holidays, and language bridging |
+| Malaysia (`my`)    |     5 | DuitNow, Touch 'n Go, JPJ, LHDN, and MyEG                                           |
+| Indonesia (`id`)   |     5 | QRIS, Gojek, Tokopedia, PLN, and BPJS                                               |
+| Thailand (`th`)    |     5 | PromptPay, LINE MAN, transit, revenue, and weather                                  |
+| Vietnam (`vn`)     |     5 | VietQR, Zalo, MoMo, EVN, and VNeID handoff                                          |
+| Philippines (`ph`) |     5 | QR Ph, GCash, eGovPH, Meralco, and PAGASA                                           |
+| Phone playbooks    |    11 | Bounded mobile-app task descriptions                                                |
 
 The generated catalogue contains 79 maintained regional skills. Phone playbooks are a separate set and are not dispatched by the `kaki_skill` tool.
 
@@ -49,15 +49,15 @@ A skill name is not a callable provider integration by itself. The receiving age
 
 Kaki policy recognizes these important categories:
 
-| Category | Default policy behavior |
-| --- | --- |
-| `none`, `data.read` | Automatic after normal authorization |
-| `message.household` | Automatic for the allowlisted household path |
-| `message.external` | Ask on first contact unless allowlisted/thread-approved |
-| `booking` | Ask |
-| `data.share` | Ask |
-| `account.change` | Ask |
-| `gov.singpass` | Always ask for human handoff |
+| Category              | Default policy behavior                                 |
+| --------------------- | ------------------------------------------------------- |
+| `none`, `data.read`   | Automatic after normal authorization                    |
+| `message.household`   | Automatic for the allowlisted household path            |
+| `message.external`    | Ask on first contact unless allowlisted/thread-approved |
+| `booking`             | Ask                                                     |
+| `data.share`          | Ask                                                     |
+| `account.change`      | Ask                                                     |
+| `gov.singpass`        | Always ask for human handoff                            |
 | Money-related actions | Validate currency, amount, payee, hard limits, and caps |
 
 Skill metadata cannot override the policy engine. `requiresApproval: false` is never authority to bypass a deterministic decision.

@@ -19,12 +19,12 @@ Kaki does not load an arbitrary `.env` file as an authoritative secret store. Ma
 
 ## Launcher environment
 
-| Variable | Purpose | Default when using `kaki` |
-| --- | --- | --- |
-| `KAKI_HOME` | Root of this Kaki deployment | `$HOME/.kaki` |
-| `OPENCLAW_STATE_DIR` | OpenClaw state used by Kaki | `$KAKI_HOME` |
-| `OPENCLAW_CONFIG_PATH` | Gateway configuration | `$KAKI_HOME/kaki.json` |
-| `OPENCLAW_WORKSPACE_DIR` | Persona and seeded skills | `$KAKI_HOME/workspace` |
+| Variable                 | Purpose                      | Default when using `kaki` |
+| ------------------------ | ---------------------------- | ------------------------- |
+| `KAKI_HOME`              | Root of this Kaki deployment | `$HOME/.kaki`             |
+| `OPENCLAW_STATE_DIR`     | OpenClaw state used by Kaki  | `$KAKI_HOME`              |
+| `OPENCLAW_CONFIG_PATH`   | Gateway configuration        | `$KAKI_HOME/kaki.json`    |
+| `OPENCLAW_WORKSPACE_DIR` | Persona and seeded skills    | `$KAKI_HOME/workspace`    |
 
 The launcher sets the three OpenClaw variables only when they are not already set. Avoid mixing an explicit `OPENCLAW_STATE_DIR` with an unrelated `KAKI_HOME`; choose one coherent state root.
 
@@ -88,12 +88,12 @@ A SecretRef is a locator:
 
 Supported sources are:
 
-| Source | Meaning | Operational requirement |
-| --- | --- | --- |
-| `env` | Read from the onboarding/service environment | Inject without printing; persist securely for service restarts |
-| `file` | Read from a protected file | Restrict owner and mode; keep outside the repository |
-| `exec` | Resolve through an approved command | Pin the executable and protect its output |
-| `store` | Resolve through the configured secret store | Configure and test the store before onboarding |
+| Source  | Meaning                                      | Operational requirement                                        |
+| ------- | -------------------------------------------- | -------------------------------------------------------------- |
+| `env`   | Read from the onboarding/service environment | Inject without printing; persist securely for service restarts |
+| `file`  | Read from a protected file                   | Restrict owner and mode; keep outside the repository           |
+| `exec`  | Resolve through an approved command          | Pin the executable and protect its output                      |
+| `store` | Resolve through the configured secret store  | Configure and test the store before onboarding                 |
 
 The five required names are `householdMemoryKey`, `model`, `ltaDataMall`, `oneMap`, and `phonePairing`. Every reference must resolve during onboarding. An evaluation placeholder can satisfy structure but must never be described as a live integration.
 
@@ -160,12 +160,12 @@ Sanitize structured output before sharing it. Do not print environment variables
 
 ## Common mistakes
 
-| Mistake | Consequence |
-| --- | --- |
-| Putting a secret directly in JSON | Credential becomes copyable configuration data |
-| Changing an ID without provisioning its owner | Config parses but runtime owner stays unavailable |
-| Sharing one `KAKI_HOME` between Gateways | State and service contention |
-| Treating a valid SecretRef as a live probe | False readiness claim |
-| Rerunning onboarding to repair every failure | Unnecessary state changes; diagnose the failing boundary first |
+| Mistake                                       | Consequence                                                    |
+| --------------------------------------------- | -------------------------------------------------------------- |
+| Putting a secret directly in JSON             | Credential becomes copyable configuration data                 |
+| Changing an ID without provisioning its owner | Config parses but runtime owner stays unavailable              |
+| Sharing one `KAKI_HOME` between Gateways      | State and service contention                                   |
+| Treating a valid SecretRef as a live probe    | False readiness claim                                          |
+| Rerunning onboarding to repair every failure  | Unnecessary state changes; diagnose the failing boundary first |
 
 Use [Troubleshooting](/kaki/troubleshooting) when a validated configuration does not become healthy.

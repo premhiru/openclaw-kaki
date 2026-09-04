@@ -40,27 +40,27 @@ Follow the [Kaki quickstart](docs/kaki/quickstart.md) for prerequisites, SecretR
 
 ## What Kaki adds
 
-| Area | Kaki capability |
-| --- | --- |
-| Household setup | Validated private profile, members, addresses, locale, approval policy, and SecretRefs |
-| State isolation | Managed `kaki` launcher with `${KAKI_HOME:-$HOME/.kaki}` state/config/workspace |
-| Operator surfaces | Authenticated Kaki Control UI plus owner-gated Telegram commands |
-| Safety | Deterministic risk policy and durable approvals bound to exact material facts |
-| Regional work | 79 maintained SG/SEA/MY/ID/TH/VN/PH skills and 11 phone playbooks |
-| Locales and data | Eight locale codes plus Singapore and regional data/QR packages |
-| Proactive work | Monitor evaluators and schedule projections for household alerts |
-| Quality | Full verification, security/secret scans, fixture replay, acceptance reports, and Ubuntu/macOS clean onboarding CI |
+| Area              | Kaki capability                                                                                                    |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Household setup   | Validated private profile, members, addresses, locale, approval policy, and SecretRefs                             |
+| State isolation   | Managed `kaki` launcher with `${KAKI_HOME:-$HOME/.kaki}` state/config/workspace                                    |
+| Operator surfaces | Authenticated Kaki Control UI plus owner-gated Telegram commands                                                   |
+| Safety            | Deterministic risk policy and durable approvals bound to exact material facts                                      |
+| Regional work     | 79 maintained SG/SEA/MY/ID/TH/VN/PH skills and 11 phone playbooks                                                  |
+| Locales and data  | Eight locale codes plus Singapore and regional data/QR packages                                                    |
+| Proactive work    | Monitor evaluators and schedule projections for household alerts                                                   |
+| Quality           | Full verification, security/secret scans, fixture replay, acceptance reports, and Ubuntu/macOS clean onboarding CI |
 
 ## Complete Kaki documentation
 
-| Learn or do | Documentation |
-| --- | --- |
-| Evaluate and get oriented | [Overview](docs/kaki/index.md) · [Architecture](docs/kaki/architecture.md) · [Known limitations](docs/kaki/limitations.md) |
-| Install and onboard | [Quickstart](docs/kaki/quickstart.md) · [Installation](docs/kaki/installation.md) · [Onboarding](docs/kaki/onboarding.md) |
-| Configure and connect | [Configuration](docs/kaki/configuration.md) · [Channels](docs/kaki/channels.md) · [Integrations](docs/kaki/integrations.md) |
-| Use household capabilities | [Using Kaki](docs/kaki/using-kaki.md) · [Skills](docs/kaki/skills.md) · [Approvals](docs/kaki/approvals.md) · [Monitors](docs/kaki/monitors.md) |
-| Deploy and operate | [Deployment](docs/kaki/deployment.md) · [Operations](docs/kaki/operations.md) · [Security](docs/kaki/security.md) · [Troubleshooting](docs/kaki/troubleshooting.md) |
-| Build and verify | [Development](docs/kaki/development.md) · [Testing and evidence](docs/kaki/testing.md) · [Complete reference](docs/kaki/reference.md) |
+| Learn or do                | Documentation                                                                                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Evaluate and get oriented  | [Overview](docs/kaki/index.md) · [Architecture](docs/kaki/architecture.md) · [Known limitations](docs/kaki/limitations.md)                                          |
+| Install and onboard        | [Quickstart](docs/kaki/quickstart.md) · [Installation](docs/kaki/installation.md) · [Onboarding](docs/kaki/onboarding.md)                                           |
+| Configure and connect      | [Configuration](docs/kaki/configuration.md) · [Channels](docs/kaki/channels.md) · [Integrations](docs/kaki/integrations.md)                                         |
+| Use household capabilities | [Using Kaki](docs/kaki/using-kaki.md) · [Skills](docs/kaki/skills.md) · [Approvals](docs/kaki/approvals.md) · [Monitors](docs/kaki/monitors.md)                     |
+| Deploy and operate         | [Deployment](docs/kaki/deployment.md) · [Operations](docs/kaki/operations.md) · [Security](docs/kaki/security.md) · [Troubleshooting](docs/kaki/troubleshooting.md) |
+| Build and verify           | [Development](docs/kaki/development.md) · [Testing and evidence](docs/kaki/testing.md) · [Complete reference](docs/kaki/reference.md)                               |
 
 The public manual is under [`docs/kaki/`](docs/kaki/). Engineering specifications, interface contracts, requirements, and design decisions are under [`kaki/docs/`](kaki/docs/). [`KAKI.md`](KAKI.md) is the concise repository entry point.
 

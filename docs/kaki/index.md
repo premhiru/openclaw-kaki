@@ -22,42 +22,42 @@ The supported starting point is a source checkout on Ubuntu/Linux or macOS. A fi
 
 ## Start here
 
-| Goal | Guide | Outcome |
-| --- | --- | --- |
-| Evaluate Kaki | This overview and [Known limitations](/kaki/limitations) | Accurate capability and evidence boundaries |
-| Install quickly | [Quickstart](/kaki/quickstart) | Healthy local Gateway and authenticated dashboard |
-| Understand the installer | [Installation](/kaki/installation) | Supported host, paths, updates, and removal |
-| Prepare household data | [Onboarding](/kaki/onboarding) | Valid private profile and SecretRefs |
-| Learn the system | [Architecture](/kaki/architecture) | Component, owner, state, and trust model |
-| Configure a deployment | [Configuration](/kaki/configuration) | Coherent paths, references, locale, and providers |
+| Goal                     | Guide                                                    | Outcome                                           |
+| ------------------------ | -------------------------------------------------------- | ------------------------------------------------- |
+| Evaluate Kaki            | This overview and [Known limitations](/kaki/limitations) | Accurate capability and evidence boundaries       |
+| Install quickly          | [Quickstart](/kaki/quickstart)                           | Healthy local Gateway and authenticated dashboard |
+| Understand the installer | [Installation](/kaki/installation)                       | Supported host, paths, updates, and removal       |
+| Prepare household data   | [Onboarding](/kaki/onboarding)                           | Valid private profile and SecretRefs              |
+| Learn the system         | [Architecture](/kaki/architecture)                       | Component, owner, state, and trust model          |
+| Configure a deployment   | [Configuration](/kaki/configuration)                     | Coherent paths, references, locale, and providers |
 
 ## Use Kaki
 
-| Goal | Guide |
-| --- | --- |
-| Use the dashboard and operator commands | [Use Kaki](/kaki/using-kaki) |
-| Configure Telegram, WhatsApp, or other channels | [Channels](/kaki/channels) |
-| Understand the regional catalogue and execution model | [Skills](/kaki/skills) |
-| Review or deny a risky action | [Approvals and safety](/kaki/approvals) |
-| Evaluate data, browser, phone, model, or provider readiness | [Integrations](/kaki/integrations) |
-| Configure proactive household notifications | [Monitors](/kaki/monitors) |
+| Goal                                                        | Guide                                   |
+| ----------------------------------------------------------- | --------------------------------------- |
+| Use the dashboard and operator commands                     | [Use Kaki](/kaki/using-kaki)            |
+| Configure Telegram, WhatsApp, or other channels             | [Channels](/kaki/channels)              |
+| Understand the regional catalogue and execution model       | [Skills](/kaki/skills)                  |
+| Review or deny a risky action                               | [Approvals and safety](/kaki/approvals) |
+| Evaluate data, browser, phone, model, or provider readiness | [Integrations](/kaki/integrations)      |
+| Configure proactive household notifications                 | [Monitors](/kaki/monitors)              |
 
 ## Operate and secure Kaki
 
-| Goal | Guide |
-| --- | --- |
-| Plan an always-on host and service | [Deployment](/kaki/deployment) |
-| Run health checks, backups, updates, and incidents | [Operations](/kaki/operations) |
-| Apply the threat model and hardening checklist | [Security](/kaki/security) |
-| Recover from a symptom | [Troubleshooting](/kaki/troubleshooting) |
-| Find commands, schemas, limits, and status codes | [Reference](/kaki/reference) |
+| Goal                                               | Guide                                    |
+| -------------------------------------------------- | ---------------------------------------- |
+| Plan an always-on host and service                 | [Deployment](/kaki/deployment)           |
+| Run health checks, backups, updates, and incidents | [Operations](/kaki/operations)           |
+| Apply the threat model and hardening checklist     | [Security](/kaki/security)               |
+| Recover from a symptom                             | [Troubleshooting](/kaki/troubleshooting) |
+| Find commands, schemas, limits, and status codes   | [Reference](/kaki/reference)             |
 
 ## Build and verify
 
-| Goal | Guide |
-| --- | --- |
-| Change packages, UI, skills, or docs | [Development](/kaki/development) |
-| Run product gates and interpret evidence | [Testing and evidence](/kaki/testing) |
+| Goal                                        | Guide                                  |
+| ------------------------------------------- | -------------------------------------- |
+| Change packages, UI, skills, or docs        | [Development](/kaki/development)       |
+| Run product gates and interpret evidence    | [Testing and evidence](/kaki/testing)  |
 | Decide whether a live workflow is supported | [Known limitations](/kaki/limitations) |
 
 ## Five-minute mental model
@@ -99,17 +99,17 @@ Success means the Gateway is healthy and the authenticated Kaki tab loads. It do
 
 ## Capability status
 
-| Surface | Current status | Operational meaning |
-| --- | --- | --- |
-| Installer and managed launcher | Implemented and CI-tested | Clean source install, frozen dependencies, build, dry run, and launcher refusal are covered on Linux/macOS |
-| Profile transaction and workspace seeding | Implemented and CI-tested | Required fields and SecretRefs are validated; existing household workspace files are preserved |
-| Kaki plugin, Control UI routes, and projections | Implemented with limitations | Auth and schemas are tested; some packaged edit/resume interactions remain incomplete |
-| Telegram controls | Implemented and owner-gated | Kaki commands require authorized household owner; `/status` and `/approve` remain OpenClaw-owned |
-| Skill catalogue and approval ledger | Implemented and fixture-tested | Plans and policy boundaries are testable; named live services still need operator evidence |
-| Monitors | Evaluators/templates implemented | Provider collection, durable dedupe, quiet hours, and end-to-end notification need deployment verification |
-| WhatsApp, models, LTA, OneMap, websites | Configuration/operator verification required | Credentials, terms, live availability, and account behavior are outside repository tests |
-| Physical Android control | Experimental/incomplete | Packaged handler and companion command contracts do not form a supported end-to-end path |
-| Pause, cost budget, quiet hours | Partial | Values can be stored/projected, but enforcement is not universal |
+| Surface                                         | Current status                               | Operational meaning                                                                                        |
+| ----------------------------------------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Installer and managed launcher                  | Implemented and CI-tested                    | Clean source install, frozen dependencies, build, dry run, and launcher refusal are covered on Linux/macOS |
+| Profile transaction and workspace seeding       | Implemented and CI-tested                    | Required fields and SecretRefs are validated; existing household workspace files are preserved             |
+| Kaki plugin, Control UI routes, and projections | Implemented with limitations                 | Auth and schemas are tested; some packaged edit/resume interactions remain incomplete                      |
+| Telegram controls                               | Implemented and owner-gated                  | Kaki commands require authorized household owner; `/status` and `/approve` remain OpenClaw-owned           |
+| Skill catalogue and approval ledger             | Implemented and fixture-tested               | Plans and policy boundaries are testable; named live services still need operator evidence                 |
+| Monitors                                        | Evaluators/templates implemented             | Provider collection, durable dedupe, quiet hours, and end-to-end notification need deployment verification |
+| WhatsApp, models, LTA, OneMap, websites         | Configuration/operator verification required | Credentials, terms, live availability, and account behavior are outside repository tests                   |
+| Physical Android control                        | Experimental/incomplete                      | Packaged handler and companion command contracts do not form a supported end-to-end path                   |
+| Pause, cost budget, quiet hours                 | Partial                                      | Values can be stored/projected, but enforcement is not universal                                           |
 
 <Warning>
 Do not give Kaki bank or Singpass credentials, reusable OTPs, production medical access, or meaningful payment authority. Use dedicated accounts, provider-side caps, and human handoff while evaluating it.

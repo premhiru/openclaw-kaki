@@ -11,15 +11,15 @@ Kaki is installed from this repository. The installer verifies the host and laun
 
 ## Supported environment
 
-| Requirement | Supported contract |
-| --- | --- |
-| Operating system | Ubuntu/Linux or macOS |
-| Native Windows | Not supported by the checked-in installer |
-| Node.js | `22.22.3–22.x`, `24.15.0–24.x`, or `25.9.0–25.x` |
-| Package manager | Corepack with the repository-pinned pnpm `12.1.0` |
-| Source control | Git |
-| Default launcher | `$HOME/.local/bin/kaki` |
-| Default state | `$HOME/.kaki` |
+| Requirement      | Supported contract                                |
+| ---------------- | ------------------------------------------------- |
+| Operating system | Ubuntu/Linux or macOS                             |
+| Native Windows   | Not supported by the checked-in installer         |
+| Node.js          | `22.22.3–22.x`, `24.15.0–24.x`, or `25.9.0–25.x`  |
+| Package manager  | Corepack with the repository-pinned pnpm `12.1.0` |
+| Source control   | Git                                               |
+| Default launcher | `$HOME/.local/bin/kaki`                           |
+| Default state    | `$HOME/.kaki`                                     |
 
 The Node ranges match the repository runtime gate. A higher major version is not automatically supported.
 
@@ -99,11 +99,11 @@ Then continue to [Onboard a household](/kaki/onboarding). Installation alone doe
 
 The launcher maps Kaki onto an isolated OpenClaw runtime:
 
-| Variable | Launcher default |
-| --- | --- |
-| `KAKI_HOME` | `$HOME/.kaki` |
-| `OPENCLAW_STATE_DIR` | `$KAKI_HOME` |
-| `OPENCLAW_CONFIG_PATH` | `$KAKI_HOME/kaki.json` |
+| Variable                 | Launcher default       |
+| ------------------------ | ---------------------- |
+| `KAKI_HOME`              | `$HOME/.kaki`          |
+| `OPENCLAW_STATE_DIR`     | `$KAKI_HOME`           |
+| `OPENCLAW_CONFIG_PATH`   | `$KAKI_HOME/kaki.json` |
 | `OPENCLAW_WORKSPACE_DIR` | `$KAKI_HOME/workspace` |
 
 Set `KAKI_HOME` before invoking `kaki` to use another absolute state location:
@@ -150,12 +150,12 @@ Deleting the launcher does not delete household state. Deleting `KAKI_HOME` is p
 
 ## Installation failures
 
-| Symptom | Next action |
-| --- | --- |
-| Unsupported Node version | Install an exact supported range and rerun the dry run |
-| Native Windows rejection | Use Linux, macOS, or a separately evaluated supported host |
-| Unmanaged launcher refusal | Move the existing file or select a new absolute `--bin-dir` |
-| Frozen install failure | Check the exact commit, network, Corepack, and lockfile integrity |
-| Build failure | Preserve the first error and use [Troubleshooting](/kaki/troubleshooting) |
+| Symptom                    | Next action                                                               |
+| -------------------------- | ------------------------------------------------------------------------- |
+| Unsupported Node version   | Install an exact supported range and rerun the dry run                    |
+| Native Windows rejection   | Use Linux, macOS, or a separately evaluated supported host                |
+| Unmanaged launcher refusal | Move the existing file or select a new absolute `--bin-dir`               |
+| Frozen install failure     | Check the exact commit, network, Corepack, and lockfile integrity         |
+| Build failure              | Preserve the first error and use [Troubleshooting](/kaki/troubleshooting) |
 
 Never work around an installer safety check by replacing the managed-launcher marker or editing generated files. Fix the reported boundary instead.
