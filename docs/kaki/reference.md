@@ -131,7 +131,7 @@ Required SecretRef keys: `householdMemoryKey`, `model`, `ltaDataMall`, `oneMap`,
 | `/phone tap <visible-target>`      | Kaki          | `operator.write` |
 | `/skills`                          | Kaki          | `operator.read`  |
 | `/cron`                            | Kaki          | `operator.read`  |
-| `/locale [sg                       | my            | id               | th  | vn  | ph  | mm  | kh]` | Kaki | `operator.write` |
+| `/locale [code]`                    | Kaki          | `operator.write` |
 | `/pause`, `/resume`                | Kaki          | `operator.write` |
 | `/cost`                            | Kaki          | `operator.read`  |
 
