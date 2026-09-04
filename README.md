@@ -1,10 +1,78 @@
-# Kaki — your Southeast Asian household agent, powered by OpenClaw
+# Kaki — your Southeast Asian household agent
 
-This repository is the Kaki hard fork of OpenClaw. It retains OpenClaw's complete
-gateway, plugin SDK, messaging channels, browser, schedules, skills, Control UI,
-and companion apps, then adds Kaki's household safety, approvals, locale, data,
-memory, phone-node, and regional skill work under [`kaki/`](kaki/). Start with
-[`KAKI.md`](KAKI.md); the upstream README follows for runtime documentation.
+<p align="center">
+  <strong>A self-hosted household agent for Singapore and Southeast Asia, built on OpenClaw.</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/premhiru/openclaw-kaki/actions/workflows/kaki-ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/premhiru/openclaw-kaki/kaki-ci.yml?branch=main&style=flat-square&label=kaki%20ci" alt="Kaki CI status"></a>
+  <a href="docs/kaki/index.md"><img src="https://img.shields.io/badge/docs-complete-blue?style=flat-square" alt="Kaki documentation"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License: MIT"></a>
+</p>
+
+Kaki turns the complete OpenClaw runtime into a private household operating layer: one isolated state root, transactional household onboarding, owner-only controls, facts-bound approvals, proactive monitor contracts, Southeast Asian locale/data packages, and 79 maintained regional skills. OpenClaw still owns the Gateway, authentication, models, channels, sessions, tools, browser, and standard operator commands.
+
+> [!IMPORTANT]
+> Kaki is source-installed software under active development. Repository tests do not prove that a live WhatsApp account, provider, website, or physical Android device works. Read the [capability boundaries](docs/kaki/limitations.md) before granting credentials or authority.
+
+## Start Kaki
+
+Supported source-install hosts are Ubuntu/Linux and macOS with Node.js `22.22.3–22.x`, `24.15.0–24.x`, or `25.9.0–25.x`. The repository pins pnpm `12.1.0` through Corepack.
+
+```bash
+git clone https://github.com/premhiru/openclaw-kaki.git
+cd openclaw-kaki
+./kaki/scripts/install.sh --dry-run
+./kaki/scripts/install.sh
+```
+
+Create a protected household profile from `kaki/examples/onboarding-profile.example.json`, then onboard and verify:
+
+```bash
+kaki onboard --classic --install-daemon \
+  --kaki-profile "$HOME/.config/kaki/profile.json"
+kaki gateway status
+kaki status --deep
+kaki dashboard
+```
+
+Follow the [Kaki quickstart](docs/kaki/quickstart.md) for prerequisites, SecretRefs, expected output, negative verification, and recovery.
+
+## What Kaki adds
+
+| Area              | Kaki capability                                                                                                    |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Household setup   | Validated private profile, members, addresses, locale, approval policy, and SecretRefs                             |
+| State isolation   | Managed `kaki` launcher with `${KAKI_HOME:-$HOME/.kaki}` state/config/workspace                                    |
+| Operator surfaces | Authenticated Kaki Control UI plus owner-gated Telegram commands                                                   |
+| Safety            | Deterministic risk policy and durable approvals bound to exact material facts                                      |
+| Regional work     | 79 maintained SG/SEA/MY/ID/TH/VN/PH skills and 11 phone playbooks                                                  |
+| Locales and data  | Eight locale codes plus Singapore and regional data/QR packages                                                    |
+| Proactive work    | Monitor evaluators and schedule projections for household alerts                                                   |
+| Quality           | Full verification, security/secret scans, fixture replay, acceptance reports, and Ubuntu/macOS clean onboarding CI |
+
+## Complete Kaki documentation
+
+| Learn or do                | Documentation                                                                                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Evaluate and get oriented  | [Overview](docs/kaki/index.md) · [Architecture](docs/kaki/architecture.md) · [Known limitations](docs/kaki/limitations.md)                                          |
+| Install and onboard        | [Quickstart](docs/kaki/quickstart.md) · [Installation](docs/kaki/installation.md) · [Onboarding](docs/kaki/onboarding.md)                                           |
+| Configure and connect      | [Configuration](docs/kaki/configuration.md) · [Channels](docs/kaki/channels.md) · [Integrations](docs/kaki/integrations.md)                                         |
+| Use household capabilities | [Using Kaki](docs/kaki/using-kaki.md) · [Skills](docs/kaki/skills.md) · [Approvals](docs/kaki/approvals.md) · [Monitors](docs/kaki/monitors.md)                     |
+| Deploy and operate         | [Deployment](docs/kaki/deployment.md) · [Operations](docs/kaki/operations.md) · [Security](docs/kaki/security.md) · [Troubleshooting](docs/kaki/troubleshooting.md) |
+| Build and verify           | [Development](docs/kaki/development.md) · [Testing and evidence](docs/kaki/testing.md) · [Complete reference](docs/kaki/reference.md)                               |
+
+The public manual is under [`docs/kaki/`](docs/kaki/). Engineering specifications, interface contracts, requirements, and design decisions are under [`kaki/docs/`](kaki/docs/). [`KAKI.md`](KAKI.md) is the concise repository entry point.
+
+## Safety boundary
+
+Kaki should prepare work and stop safely before identity authentication, disclosure, bookings, payments, external messages, or account changes. Never provide bank passwords, Singpass credentials, reusable OTPs, recovery codes, or meaningful payment authority. Use dedicated accounts, provider-side caps, and verified human handoff.
+
+Current limitations include incomplete physical Android integration and partial enforcement of pause, cost budgets, and quiet hours. An approval authorizes one exact facts hash; it is not proof that the external action completed.
+
+## Relationship to OpenClaw
+
+This repository is a Kaki hard fork of OpenClaw. Kaki-specific source lives primarily in [`kaki/`](kaki/), [`extensions/kaki/`](extensions/kaki/), and [`kaki.mjs`](kaki.mjs). The upstream README is retained below so operators still have the full OpenClaw runtime reference.
 
 ---
 

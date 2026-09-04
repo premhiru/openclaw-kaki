@@ -1134,21 +1134,41 @@
                 "pages": [
                   "kaki/index",
                   "kaki/quickstart",
-                  "kaki/onboarding",
-                  "kaki/using-kaki"
+                  "kaki/installation",
+                  "kaki/onboarding"
+                ]
+              },
+              {
+                "group": "Understand",
+                "pages": ["kaki/architecture", "kaki/configuration"]
+              },
+              {
+                "group": "Use",
+                "pages": [
+                  "kaki/using-kaki",
+                  "kaki/channels",
+                  "kaki/skills",
+                  "kaki/approvals",
+                  "kaki/integrations",
+                  "kaki/monitors"
                 ]
               },
               {
                 "group": "Operate",
                 "pages": [
+                  "kaki/deployment",
                   "kaki/operations",
-                  "kaki/troubleshooting",
-                  "kaki/limitations"
+                  "kaki/security",
+                  "kaki/troubleshooting"
                 ]
               },
               {
+                "group": "Build",
+                "pages": ["kaki/development", "kaki/testing"]
+              },
+              {
                 "group": "Reference",
-                "pages": ["kaki/reference"]
+                "pages": ["kaki/reference", "kaki/limitations"]
               }
             ]
           },
