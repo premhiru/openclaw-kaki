@@ -1127,8 +1127,33 @@
             ]
           },
           {
-            "tab": "Install",
+            "tab": "Kaki",
             "groups": [
+              {
+                "group": "Start",
+                "pages": [
+                  "kaki/index",
+                  "kaki/quickstart",
+                  "kaki/onboarding",
+                  "kaki/using-kaki"
+                ]
+              },
+              {
+                "group": "Operate",
+                "pages": [
+                  "kaki/operations",
+                  "kaki/troubleshooting",
+                  "kaki/limitations"
+                ]
+              },
+              {
+                "group": "Reference",
+                "pages": ["kaki/reference"]
+              }
+            ]
+          },
+          {
+            "tab": "Install",            "groups": [
               {
                 "group": "Install overview",
                 "pages": [

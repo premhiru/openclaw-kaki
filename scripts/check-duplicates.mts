@@ -22,6 +22,8 @@ const targets = [
   "test",
   "skills",
   "config",
+  "kaki",
+  "kaki.mjs",
   "node-version.mjs",
   "openclaw.mjs",
   "tsdown.ai.config.ts",
@@ -37,12 +39,15 @@ const intentionallyUnscannedPrefixes = [".agents/", "vendor/"];
 
 const generatedIgnores = [
   "**/node_modules/**",
+  "**/node_modules.*/**",
   "**/dist/**",
   "**/.git/**",
   "**/coverage/**",
   "**/build/**",
   "**/.build/**",
   "**/.artifacts/**",
+  // Generated per-skill entrypoints are catalogue drift-checked by @kaki/skills.
+  "kaki/packages/skills/**/run.ts",
   "vendor/**",
 ];
 

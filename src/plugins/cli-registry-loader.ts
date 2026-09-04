@@ -8,6 +8,7 @@ import { getRuntimeConfig } from "../config/config.js";
 import { resolveStateDir } from "../config/paths.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { createSubsystemLogger } from "../logging/subsystem.js";
+import { withActivatedPluginIds } from "./activation-context.js";
 import { resolveManifestActivationPluginIds } from "./activation-planner.js";
 import { resolvePluginActivationSourceConfig } from "./activation-source-config.js";
 import { createPluginCliGatewayNodesRuntime } from "./cli-gateway-nodes-runtime.js";
@@ -198,6 +199,23 @@ export function createPluginCliLogger(): PluginLogger {
   return createPluginRuntimeLoaderLogger();
 }
 
+function buildPluginCliScopedLoadOptions(
+  context: PluginRuntimeLoadContext,
+  onlyPluginIds: string[] | undefined,
+  loaderOptions?: Partial<PluginLoadOptions>,
+) {
+  // A manifest-owned command is an activation trigger. Activate only its owner for this
+  // CLI process; the planner has already rejected explicit disables and policy blocks.
+  const config = onlyPluginIds?.length
+    ? (withActivatedPluginIds({ config: context.config, pluginIds: onlyPluginIds }) ??
+      context.config)
+    : context.config;
+  return buildPluginRuntimeLoadOptions(context, {
+    config,
+    ...loaderOptions,
+    ...(onlyPluginIds && onlyPluginIds.length > 0 ? { onlyPluginIds } : {}),
+  });
+}
 function resolvePrimaryCommandManifestPluginIds(
   context: PluginRuntimeLoadContext,
   primaryCommand: string | undefined,
@@ -273,11 +291,10 @@ async function loadPluginCliMetadataRegistryWithContext(
   prepared.assertCurrent();
   const registry = await (prepared.metadataRegistry ??= prepared.withCache(() =>
     loadOpenClawPluginCliRegistry(
-      buildPluginRuntimeLoadOptions(prepared.context, {
+      buildPluginCliScopedLoadOptions(prepared.context, onlyPluginIds, {
         ...loaderOptions,
         // The prepared record owns reuse; process caching can retain another generation's registrars.
         cache: false,
-        ...(onlyPluginIds && onlyPluginIds.length > 0 ? { onlyPluginIds } : {}),
       }),
     ),
   ));
@@ -307,9 +324,8 @@ async function loadPluginCliCommandRegistryWithContext(params: {
   }
   return params.prepared.withCache(() =>
     loadPluginRegistryHandle(
-      buildPluginRuntimeLoadOptions(context, {
+      buildPluginCliScopedLoadOptions(context, onlyPluginIds, {
         ...params.loaderOptions,
-        ...(onlyPluginIds && onlyPluginIds.length > 0 ? { onlyPluginIds } : {}),
         cache: false,
         channelPluginLoadIntent: "full",
         runtimeOptions: { nodes: createPluginCliGatewayNodesRuntime() },

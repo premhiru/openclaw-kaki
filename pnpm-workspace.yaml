@@ -4,6 +4,9 @@ packages:
   - packages/*
   - extensions/*
   - examples/*
+  - kaki
+  - kaki/apps/*
+  - kaki/packages/*
 
 minimumReleaseAge: 10080
 minimumReleaseAgeStrict: true
@@ -81,6 +84,8 @@ allowBuilds:
   clawpdf: true
   "@openclaw/crabline": true
   rastermill: true
+  # Kaki Control UI uses Cloudflare's local Worker runtime for builds and tests.
+  workerd: true
   node-pty: true
 
 packageExtensions:

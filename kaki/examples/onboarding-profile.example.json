@@ -1,0 +1,69 @@
+{
+  "config": {
+    "householdProfileId": "replace-household-profile-id",
+    "operatorPersonId": "replace-operator-person-id",
+    "addressBookProfileId": "replace-address-profile-id",
+    "approvalPolicyProfileId": "replace-approval-profile-id",
+    "dataProfileId": "replace-data-profile-id",
+    "phoneNodeId": "replace-phone-node-id",
+    "whatsappAccountId": "assistant",
+    "telegramAccountId": "control",
+    "modelProfileId": "replace-model-profile-id",
+    "asrProfileId": "replace-asr-profile-id",
+    "locale": "sg"
+  },
+  "householdName": "Example Household",
+  "operatorName": "Example Operator",
+  "members": [
+    {
+      "id": "replace-operator-person-id",
+      "name": "Example Operator",
+      "relation": "self",
+      "languages": ["English"],
+      "register": "clear, concise Singapore English",
+      "dietary": [],
+      "commute": []
+    }
+  ],
+  "addresses": [
+    {
+      "id": "replace-home-address-id",
+      "label": "home",
+      "oneMapSearchValue": "replace with a confirmed search value",
+      "postalCode": "000000",
+      "latitude": 1.3521,
+      "longitude": 103.8198
+    }
+  ],
+  "approvalAutoCap": 0,
+  "approvalCurrency": "SGD",
+  "monthlyModelBudgetUsd": 1,
+  "monitorSessionKey": "agent:main:main",
+  "secretRefs": {
+    "householdMemoryKey": {
+      "source": "env",
+      "provider": "default",
+      "id": "KAKI_MEMORY_KEY"
+    },
+    "model": {
+      "source": "env",
+      "provider": "default",
+      "id": "KAKI_MODEL_KEY"
+    },
+    "ltaDataMall": {
+      "source": "env",
+      "provider": "default",
+      "id": "KAKI_LTA_KEY"
+    },
+    "oneMap": {
+      "source": "env",
+      "provider": "default",
+      "id": "KAKI_ONEMAP_KEY"
+    },
+    "phonePairing": {
+      "source": "env",
+      "provider": "default",
+      "id": "KAKI_PHONE_KEY"
+    }
+  }
+}
