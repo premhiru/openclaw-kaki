@@ -1,11 +1,9 @@
 ---
 summary: "Understand Kaki's current capability boundaries and release-evidence rules."
 read_when:
-
-- You are deciding whether Kaki is ready for a live workflow
-- You are interpreting a green Kaki test or acceptance report
-  title: "Kaki known limitations"
-
+  - You are deciding whether Kaki is ready for a live workflow
+  - You are interpreting a green Kaki test or acceptance report
+title: "Kaki known limitations"
 ---
 
 Kaki has broad deterministic coverage, but repository evidence and live-service evidence answer different questions. Use this page before giving Kaki external accounts, phone access, or financial authority.

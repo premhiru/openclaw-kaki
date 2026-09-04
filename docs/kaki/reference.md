@@ -1,11 +1,9 @@
 ---
 summary: "Kaki CLI, state, configuration, Telegram, and HTTP reference."
 read_when:
-
-- You need exact Kaki commands or limits
-- You are integrating with the Kaki control API
-  title: "Kaki reference"
-
+  - You need exact Kaki commands or limits
+  - You are integrating with the Kaki control API
+title: "Kaki reference"
 ---
 
 ## Launcher and state

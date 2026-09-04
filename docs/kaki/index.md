@@ -1,11 +1,9 @@
 ---
 summary: "Install, onboard, and operate Kaki, a self-hosted household agent for Southeast Asia."
 read_when:
-
-- You are evaluating or starting Kaki
-- You need to know what Kaki can safely do today
-  title: "Kaki"
-
+  - You are evaluating or starting Kaki
+  - You need to know what Kaki can safely do today
+title: "Kaki"
 ---
 
 Kaki is a self-hosted household agent built on OpenClaw. It adds a household profile, regional skill catalogue, operator controls, approval records, and Southeast Asian locale packs to the OpenClaw Gateway.

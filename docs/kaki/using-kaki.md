@@ -1,11 +1,9 @@
 ---
 summary: "Use Kaki from the dashboard and authenticated Telegram controls."
 read_when:
-
-- Your Kaki Gateway is onboarded
-- You need the operator commands or approval behavior
-  title: "Use Kaki"
-
+  - Your Kaki Gateway is onboarded
+  - You need the operator commands or approval behavior
+title: "Use Kaki"
 ---
 
 After onboarding, run the Gateway and open the dashboard:

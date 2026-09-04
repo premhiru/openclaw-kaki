@@ -1,11 +1,9 @@
 ---
 summary: "Prepare and validate Kaki's private household profile."
 read_when:
-
-- You are preparing a Kaki onboarding profile
-- Onboarding rejects a field or SecretRef
-  title: "Onboard a household"
-
+  - You are preparing a Kaki onboarding profile
+  - Onboarding rejects a field or SecretRef
+title: "Onboard a household"
 ---
 
 Kaki onboarding collects household structure and references to secrets in one validated transaction. It writes only non-secret IDs into plugin configuration and encrypts the private profile with AES-256-GCM.
