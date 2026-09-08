@@ -1,6 +1,12 @@
+import { createHash } from "node:crypto";
 import path from "node:path";
 import type { OpenClawPluginServiceContext } from "openclaw/plugin-sdk/core";
 import { definePluginEntry } from "openclaw/plugin-sdk/plugin-entry";
+import { createCheckoutBrowser } from "./checkout-browser.js";
+import { checkoutInputPage, createCheckoutInputHandler } from "./checkout-input.js";
+import { CheckoutLinkProvider } from "./checkout-link.js";
+import { KakiCheckoutOwner, type CheckoutRecord } from "./checkout-owner.js";
+import { createKakiCheckoutTool } from "./checkout-tool.js";
 import { createKakiControlCommands } from "./commands.js";
 import { parseKakiPluginConfig, type KakiPluginConfig } from "./config.js";
 import type { KakiRuntimeOwners } from "./contracts.js";
@@ -36,6 +42,8 @@ export function createKakiPlugin(
         ],
       });
       const config = parseKakiPluginConfig(api.pluginConfig);
+      let checkoutStateDir: string | undefined;
+      let checkout: KakiCheckoutOwner | undefined;
       const registry = options.registry ?? new KakiRuntimeOwnerRegistry();
       if (config && (options.ownerFactory || !options.registry)) {
         const ownerFactory =
@@ -52,12 +60,16 @@ export function createKakiPlugin(
           id: "kaki-runtime-owners",
           async start(context) {
             const owners = await ownerFactory(context, config);
+            checkoutStateDir = context.stateDir;
             release = registry.install({
               householdProfileId: config.householdProfileId,
               owners,
             }).release;
           },
           stop() {
+            checkout?.close();
+            checkout = undefined;
+            checkoutStateDir = undefined;
             release?.();
             release = undefined;
           },
@@ -68,6 +80,53 @@ export function createKakiPlugin(
           ? (registry.current(config.householdProfileId) ??
             resolveInstalledKakiRuntimeOwners(config.householdProfileId))
           : undefined;
+      const resolveCheckout = () => {
+        if (!config || !checkoutStateDir || !resolveOwners()) {
+          return undefined;
+        }
+        if (!checkout) {
+          const household = createHash("sha256").update(config.householdProfileId).digest("hex");
+          checkout = new KakiCheckoutOwner(
+            createCheckoutBrowser((method, params) =>
+              api.runtime.gateway.request(method, params, {
+                timeoutMs: 30_000,
+                scopes: ["operator.write"],
+              }),
+            ),
+            new CheckoutLinkProvider({
+              authFile: path.join(checkoutStateDir, "credentials", "link", household + ".json"),
+            }),
+            api.runtime.state.openKeyedStore<CheckoutRecord>({
+              namespace: "kaki-checkout",
+              maxEntries: 1000,
+              overflowPolicy: "reject-new",
+            }),
+            async () => {
+              const owners = resolveOwners();
+              if (!owners || (await owners.system.snapshot(new AbortController().signal)).paused) {
+                throw new Error("Kaki is paused or unavailable.");
+              }
+            },
+          );
+        }
+        return checkout;
+      };
+      api.registerTool((context) => createKakiCheckoutTool(context, resolveCheckout), {
+        name: "kaki_checkout",
+      });
+      api.registerHttpRoute({
+        path: "/api/kaki/checkout/input",
+        auth: "plugin",
+        match: "exact",
+        handler: checkoutInputPage,
+      });
+      api.registerHttpRoute({
+        path: "/api/kaki/checkout/input-data",
+        auth: "gateway",
+        match: "exact",
+        gatewayRuntimeScopeSurface: "trusted-operator",
+        handler: createCheckoutInputHandler(resolveCheckout),
+      });
       api.registerTool((context) => createKakiSkillTool(context, resolveOwners), {
         name: "kaki_skill",
         optional: true,

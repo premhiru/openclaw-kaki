@@ -22,8 +22,9 @@
     ]
   },
   "contracts": {
-    "tools": ["kaki_skill"]
+    "tools": ["kaki_skill", "kaki_checkout"]
   },
+  "skills": ["./skills"],
   "commandAliases": [
     { "name": "deny", "kind": "runtime-slash" },
     { "name": "relink-wa", "kind": "runtime-slash" },

@@ -52,7 +52,7 @@ describe("Kaki plugin entry", () => {
     expect(manifest.enabledByDefault).toBe(false);
     expect(manifest.activation.onStartup).toBe(false);
     expect(manifest.activation.onConfigPaths).toEqual(["plugins.entries.kaki"]);
-    expect(manifest.contracts.tools).toEqual(["kaki_skill"]);
+    expect(manifest.contracts.tools).toEqual(["kaki_skill", "kaki_checkout"]);
     expect(manifest.configSchema.additionalProperties).toBe(false);
     const fullConfigBranch = manifest.configSchema.oneOf.find(
       (branch): branch is { required: string[] } => "required" in branch,
@@ -98,7 +98,7 @@ describe("Kaki plugin entry", () => {
   it("registers exact Gateway-authenticated control routes", () => {
     const { routes, services, cli, tools, controls } = registerPlugin();
     expect(services).toEqual([]);
-    expect(routes).toHaveLength(3);
+    expect(routes).toHaveLength(5);
     expect(
       routes.map(({ path, auth, match, gatewayRuntimeScopeSurface }) => ({
         path,
@@ -107,6 +107,18 @@ describe("Kaki plugin entry", () => {
         gatewayRuntimeScopeSurface,
       })),
     ).toEqual([
+      {
+        path: "/api/kaki/checkout/input",
+        auth: "plugin",
+        match: "exact",
+        gatewayRuntimeScopeSurface: undefined,
+      },
+      {
+        path: "/api/kaki/checkout/input-data",
+        auth: "gateway",
+        match: "exact",
+        gatewayRuntimeScopeSurface: "trusted-operator",
+      },
       {
         path: "/api/kaki/snapshot",
         auth: "gateway",
@@ -129,7 +141,10 @@ describe("Kaki plugin entry", () => {
     expect(cli[0]?.descriptors).toEqual([
       expect.objectContaining({ name: "kaki-bootstrap", machineOutput: expect.any(Function) }),
     ]);
-    expect(tools).toEqual([expect.objectContaining({ name: "kaki_skill", optional: true })]);
+    expect(tools).toEqual([
+      expect.objectContaining({ name: "kaki_checkout" }),
+      expect.objectContaining({ name: "kaki_skill", optional: true }),
+    ]);
     expect(controls).toEqual([
       expect.objectContaining({
         id: "kaki",

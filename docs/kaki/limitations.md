@@ -25,6 +25,12 @@ Kaki has broad deterministic coverage, but repository evidence and live-service 
 
 The repository does not claim live readiness for WhatsApp, Gmail, Grab, Singpass, banking, government portals, LTA, OneMap, or a model provider. Account authorization, terms, rate limits, bot detection, provider drift, and outages need bounded operator probes.
 
+### Bookings and checkout depend on the merchant
+
+Kaki can prepare page-specific checkout fields and use the optional Link integration for supported payments. This is not universal booking-site coverage. Embedded forms, changing page layouts, CAPTCHA, identity checks, and bank challenges may require a user handoff. The payment tool returns `submitted_unverified`; it does not automatically verify a merchant receipt. Kaki must inspect the merchant confirmation with its browser tools before reporting success, or request a user check when it cannot access or establish the result. A prepared checkout or Link approval is not a completed purchase. Only one unresolved checkout is allowed per conversation. Link-confirmed terminal outcomes can permit a later purchase, but successful or uncertain submissions retain protection against repeating the same checkout. Hidden background frames alone do not block payment; visible embedded frames still require a handoff.
+
+Link CLI currently supports eligible US Link accounts. Kaki supports virtual-card payments in USD up to US$500 per purchase; Link Pay Tokens are not implemented. Additional account limits and verification requirements come from Link and may exclude the requested purchase. Private identity input requires an authenticated Gateway surface or entry directly on the merchant page; a WhatsApp conversation alone does not provide that surface. See [Bookings and checkout](/kaki/checkout).
+
 ### Pause is not a kill switch
 
 `/pause` stores a boolean through the Kaki owner. Current skill and monitor execution paths do not universally enforce it. Stop or restrict work at the channel, Gateway service, credential, or provider boundary during an incident.
