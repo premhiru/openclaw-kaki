@@ -90,7 +90,8 @@ export function createKakiPlugin(
             createCheckoutBrowser((method, params) =>
               api.runtime.gateway.request(method, params, {
                 timeoutMs: 30_000,
-                scopes: ["operator.write"],
+                // The gateway classifies browser.request as admin; checkout entry points are owner-only.
+                scopes: ["operator.admin"],
               }),
             ),
             new CheckoutLinkProvider({
