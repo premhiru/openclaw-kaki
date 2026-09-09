@@ -58,6 +58,12 @@ When a risky skill needs approval, it stops before the irreversible step and cre
 Review the destination, amount, currency, identity, and facts hash. Reject an approval if anything changed. Do not interpret a UI success toast alone as proof that a risky action resumed or completed.
 </Warning>
 
+## Bookings and checkout
+
+Ask Kaki to inspect the actual booking or checkout page. It asks for missing fields, fills ordinary details, and rechecks validation before preparing the final purchase. Sensitive identity fields use private entry; supported Link payments require approval in Link and a merchant confirmation before Kaki reports success.
+
+See [Bookings and checkout](/kaki/checkout) for setup, account limits, and handoffs. This checkout flow requires Link approval even when a household policy permits another payment category automatically.
+
 ## Monitors
 
 Kaki includes ten monitor templates. A schedule creates an announcement turn in the configured session; the template does not independently query a provider. Confirm that the receiving agent has the needed data access and that its result is useful before relying on a monitor.
